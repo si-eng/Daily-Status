@@ -615,7 +615,7 @@
 # print('%.9s' % str_num)
 # print('%.10s' % str_num)
 
-#121
+#121. 
 
 #122.Write a Python program to empty a variable without destroying it.
 # d = {"x":200}
@@ -645,8 +645,16 @@
 # num = [1,2,3,4,5]
 # print(sum(collections.Counter(num).values()))
 
-#126
-#127 
+#126. Write a Python program to get the actual module object for a given object
+# from inspect import getmodule
+# from math import sqrt
+# print(getmodule(sqrt))
+
+#127.  Write a Python program to check whether an integer fits in 64 bits. 
+# int_val = 30
+# if int_val.bit_length() <= 63:
+#     print((-2 ** 63).bit_length())
+#     print((2 ** 63).bit_length())
 #        
 # 128. Write a Python program to check whether lowercase letters exist in a string
 # str1 = input("enter the user data: ")
@@ -684,7 +692,8 @@
 # print(t1)
 # print(t2)
 
-#136
+#136.  Write a Python program to find files and skip directories of a given directory.
+
 
 # 137. Write a Python program to extract single key-value pair of a dictionary in variables
 # p = {"Name": "Anu"}
@@ -700,14 +709,43 @@
 # x = int(x == 'true')
 # print(x)
 
-#139
-#140
+#139. Write a Python program to valid a IP address.
+# import socket
+# ADDRESS = input("enter a ip " "=")
+# try:
+#     socket.inet_aton(ADDRESS)
+#     print("IP IS VALID")
+# except socket.error:
+#     print("IP IS NOT VALID")
+
+#140.  Write a Python program to convert an integer to binary keep leading zeros. 
+# Sample data : x=12
+# Expected output : 00001100
+# 0000001100
+
+# x = 12
+# print(format(x, '08b'))
+# print(format(x, '010b'))
 
 # 141. Write a python program to convert decimal to hexadecimal
 # x =  int(input("enter number: "))
 # print(format(x, '02x'))
 
-#142
+#142. 142. Write a Python program to check if every consecutive sequence of zeroes is followed by a consecutive sequence of ones of same length in a given string. Return True/False. Go to the editor
+# Original sequence: 01010101
+# Check if every consecutive sequence of zeroes is followed by a consecutive sequence of ones in the said string:
+# True
+# Original sequence: 00
+# Check if every consecutive sequence of zeroes is followed by a consecutive sequence of ones in the said string:
+# False
+# Original sequence: 000111000111
+# Check if every consecutive sequence of zeroes is followed by a consecutive sequence of ones in the said string:
+# True
+# Original sequence: 00011100011
+# Check if every consecutive sequence of zeroes is followed by a consecutive sequence of ones in the said string:
+# False
+
+
 
 #143. Write a Python program to determine if the python shell is executing in 32bit or 64bit mode on operating system.
 # import struct
