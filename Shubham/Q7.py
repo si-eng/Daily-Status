@@ -1,3 +1,3 @@
-filename= input("Enter Filename: ")
-f = filename.split(".")
-print ("Extension of the file is : ", f[-1])
+data= input("Enter file name: ")
+s = data.split(".")
+print ("Extension of file is : ", s[-1])
