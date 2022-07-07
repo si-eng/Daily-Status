@@ -46,19 +46,12 @@
 # f = colour.split(",")
 # c= (f[0], f[-1])
 # print(c)
- 
-
-#9. Write a Python program to display the examination schedule. (extract the date from exam_st_date).
-# schedule = input("enter student schedule : ")
-# f = "/".join(schedule)
-# print(schedule)
-# print(f)
- 
+  
 #9. Write a Python program to display the examination schedule. (extract the date from exam_st_date). 
 # exam_st_date = (11,12,2014)
 # print( "The examination will start from : %i / %i / %i"%exam_st_date)
  
- # 10. Write a Python program that accepts an integer (n) and computes the value of n+nn+nnn
+# 10. Write a Python program that accepts an integer (n) and computes the value of n+nn+nnn
 # a = int(input("Input an integer : "))
 # n1 = int( "%d" % a )
 # n2 = int( "%d%d" % (a,a) )
@@ -150,6 +143,13 @@
 # print(new_string("Array list tuples"))
 # print(new_string(" ")) 
 
+# 20. Write a Python program to get a string which is n (non-negative integer) copies of a given string. 
+# def larger_string(str, n):
+#     result = ""
+#     for i in range(n):
+#         result = result + str
+#     return result
+# print(larger_string('abc', 4))
 
 #21. Write a Python program to find whether a given number (accept from the user) is even or odd, print out an appropriate message to the user. 
 # num = int(input("Enter a number: "))
@@ -381,6 +381,10 @@
 # import site; 
 # print(site.getsitepackages())
 
+# 45. Write a Python program to call an external command.
+# import os
+# print(os.system('ls -l'))
+
 # 46. Write a python program to get the path and name of the file that is currently executing. 
 # import os
 # print("Current File Name : ",os.path.realpath(__file__))
@@ -394,7 +398,11 @@
 # print(float(n))
 # print(int(float(n)))
 
-
+# 49. Write a Python program to list all files in a directory in Python.
+# from os import listdir
+# from os.path import isfile, join
+# files_list = [f for f in listdir('/home/seasia') if isfile(join('/home/seasia', f))]
+# print(files_list);
 
 # 50. Write a Python program to print without newline or space.
 # for i in range(0, 10):
@@ -447,7 +455,7 @@
 # print("The length of the hypotenuse is:", c )
 
 # 61. Write a Python program to convert the distance (in feet) to inches, yards, and miles. 
-# feet = int(input("Input distance in feet: "))
+# d_ft= int(input("Input distance in feet: "))
 # d_inches = d_ft * 12
 # d_yards = d_ft / 3.0
 # d_miles = d_ft / 5280.0
@@ -852,9 +860,21 @@
 # num = [2,2,4,6,6,8,6,10,4]
 # print(sum(collections.Counter(num).values()))        >>[collections.Counter(num).values() ]     
 
+
+# 126. Write a Python program to get the actual module object for a given object.
+# from inspect import getmodule
+# from random import randint
+# print(getmodule(randint))
+
+
 # 128. Write a Python program to check whether lowercase letters exist in a string
 # str1 = input("enter the user data: ")
 # print(any(c.islower() for c in str1))
+
+# 126. Write a Python program to get the actual module object for a given object.
+# from inspect import getmodule
+# from random import randint
+# print(getmodule(randint))
 
 
 #129. Write a Python program to add leading zeroes to a string.
@@ -867,9 +887,27 @@
 # p=""" "hellooooo" """
 # print(p)
 
+# 131. Write a Python program to split a variable length string into variables.
+# name =["priya", "shukla"]
+# print("name:", name)
+# a, b = name
+# print(a)
+# print(b)
+
 # 132. Write a Python program to list home directory without absolute path
 # import os.path
 # print(os.path.expanduser('~'))
+
+# 133. Write a Python program to calculate the time runs (difference between start and current time) of a program
+# import time
+# start = time.time()
+# for i in range(10):
+#     print(i)
+# # sleeping for 1 sec to get 10 sec runtime
+# time.sleep(1)
+# end = time.time()
+# print(f"Runtime of the program is {end - start}")
+
 
 #134. Write a Python program to input two integers in a single line
 # print("Input the value of x & y & z")
@@ -884,6 +922,10 @@
 # (c1, c2), = d.items()
 # print(c1)
 # print(c2)
+
+# 136. Write a Python program to find files and skip directories of a given directory.
+# import os
+# print([f for f in os.listdir('/home/seasia ') if os.path.isfile(os.path.join('/home/seasia', f))])
 
 # 137. Write a Python program to extract single key-value pair of a dictionary in variables
 # p = {"Name": "Priya"}
@@ -900,9 +942,27 @@
 # x = int(x == 'true')
 # print(x)
 
+# 139. Write a Python program to valid a IP address.
+# import socket
+# addr = '127.0.0.2561'                           # ('socket' module defines how server and client machines can communicate at hardware level using socket endpoints on top of the operating system)
+# try:
+#     socket.inet_aton(addr)                # The function inet_aton() converts an IPv4 address from the dotted-quad string format to 32-bit packed binary format. 
+#     print("Valid IP")
+# except socket.error:
+#     print("Invalid IP")
+
+#140. Write a Python program to convert an integer to binary keep leading zeros
+# x = 12
+# print(format(x, '08b'))
+# print(format(x, '010b'))
+
 # 141. Write a python program to convert decimal to hexadecimal
 # x =  int(input("enter number: "))
 # print(format(x, '02x'))
+
+# 143. Write a Python program to determine if the python shell is executing in 32bit or 64bit mode on operating system.
+# import struct
+# print(struct.calcsize("P") * 8)
 
 # 144. Write a Python program to check whether variable is integer or string. 
 # print(isinstance(25,int) )      #The isinstance() function returns True if the specified object is of the specified type, otherwise False
@@ -921,7 +981,34 @@
 # else:
 #     print('Neither a list or a set or a tuple.')
 
+# 146. Write a Python program to find the location of Python module sources.
+# import imp
+# print("Location of Python random module sources:")
+# print(imp.find_module('random'))
 
+# 147. Write a Python function to check whether a number is divisible by another number. Accept two integers values form the user.
+# def multiple(m, n):
+#     	return True if m % n == 0 else False
+# m= int(input ("1st number: "))
+# n= int(input ("2nd number: "))
+# print(multiple(m, n))
+
+
+# 148. Write a Python function to find the maximum and minimum numbers from a sequence of numbers. Go to the editor
+# Note: Do not use built-in functions.
+# def minandmax():
+#     num= [35,2,67,46,354,3,6]
+#     min = num[0]
+#     for a in num:
+#         if a<min:
+#             min = a
+#             print(min)
+#     max = num[0]
+#     for a in num:
+#         if a>max:
+#             max = a
+#     print(max)                
+# minandmax()           
 
 # 149. Write a Python function that takes a positive integer and returns the sum of the cube of all the positive integers smaller than the specified number.
 # def sum_of_cubes(n):
@@ -948,3 +1035,4 @@
 # print(dt1, odd_product(dt1));
 # print(dt2, odd_product(dt2));
 # print(dt3, odd_product(dt3));
+
