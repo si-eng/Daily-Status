@@ -505,3 +505,27 @@ y = 20
 print("%d+%d=%d" % (x, y, x+y))
 print()"""
 
+#61. Write a Python program to convert the distance (in feet) to inches, yards, and miles. 
+"""d_ft = int(input("Input distance in feet: "))
+d_inches = d_ft * 12
+d_yards = d_ft / 3.0
+d_miles = d_ft / 5280.0
+print( d_inches)
+print(d_yards)
+print( d_miles)"""
+
+#117. Write a Python program to prove that two string variables of same value point same memory location.
+"""str1 = "Python"
+str2 = "Python"
+print("Memory location of str1 =", hex(id(str1)))
+print("Memory location of str2 =", hex(id(str2)))
+print()"""
+
+# Write a Python program to print to stderr.
+print("shreeeeee23", file=sys.stderr)
+
+
+
+
+
+
