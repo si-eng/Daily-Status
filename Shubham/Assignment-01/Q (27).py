@@ -1,3 +1,7 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+list = [1, 5, 12, 2]
+
+answer = ''
+for i in list:
+    j = str(i)
+    answer +=j
+print(answer)
