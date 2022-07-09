@@ -1,3 +1,3 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+x="my.nb"
+y=x.split(".")
+print(y[-1])
