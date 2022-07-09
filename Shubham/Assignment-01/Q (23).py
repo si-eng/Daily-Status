@@ -1,3 +1,4 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+import sys
+print("Float value information: ",sys.float_info)
+print("\nInteger value information: ",sys.int_info)
+print("\nMaximum size of an integer: ",sys.maxsize)
