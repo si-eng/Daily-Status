@@ -1,3 +1,5 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+Sample string :
+a string that you "don't" have to escape
+This
+is a ....... multi-line
+heredoc string --------> example
