@@ -165,3 +165,34 @@ def vowel(char):
     return char in vowel
 print (vowel('p'))
 
+# 25. Write a Python program to check whether a specified value is contained in a group of values. Go to the editor
+# Test Data :
+# 3 -> [1, 5, 8, 3] : True
+# -1 -> [1, 5, 8, 3] : False
+
+# def group_member(groupdata,n):
+#     for value in groupdata:
+#         if n == value:
+#          return True
+#     return False
+# print(group_member([1, 5, 8, 3],3))
+# print(group_member([1, 5, 8, 3],-1))
+
+# 26. Write a Python program to create a histogram from a given list of integers.
+
+# from ast import pattern
+
+
+# pattern = "*"
+# list= [1,2,3,4,5]
+
+# for i in list:
+#     print(pattern*i)
+
+# 27. Write a Python program to concatenate all elements in a list into a string and return it.
+def concatenate(list):
+ result= ''
+ for element in list:
+    result += str(element)
+ return result
+print (concatenate([1,2,3,4]))
