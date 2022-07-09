@@ -1,3 +1,4 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+def new_string(str):
+   if len(str) >= 2 and str[:2] == "Is":
+     return str
+     return "Is" + str
