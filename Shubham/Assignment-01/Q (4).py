@@ -1,3 +1,3 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+n=float(input("enter the value= "))
+a=3.14*(n*n)
+print(a)
