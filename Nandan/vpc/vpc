@@ -1,0 +1,85 @@
+provider "aws" {
+  region     = "ap-south-1"
+}
+
+resource "aws_vpc" "nandanvpc" {
+  cidr_block = "10.0.0.0/16"
+  tags = {
+    Name = "1stvpc"
+  }
+}
+
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.nandanvpc.id
+
+  tags = {
+    Name = "gateway"
+  }
+}
+
+resource "aws_subnet" "NKsubnet" {
+  vpc_id     = aws_vpc.nandanvpc.id
+  cidr_block = "10.0.1.0/24"
+
+  tags = {
+    Name = "subnet"
+  }
+}
+
+resource "aws_route_table" "rtb" {
+  vpc_id = aws_vpc.nandanvpc.id
+
+  route = []
+
+  tags = {
+    Name = "example"
+  }
+}
+
+resource "aws_route" "nkroutes" {
+  route_table_id            = aws_route_table.rtb.id
+  destination_cidr_block    = "0.0.0.0/0"
+  gateway_id = aws_internet_gateway.igw.id
+  
+}
+
+resource "aws_security_group" "NKsecuritygroup" {
+  name        = "allow_tls"
+  description = "Allow TLS inbound traffic"
+  vpc_id      = aws_vpc.nandanvpc.id
+
+  ingress {
+    description      = "TLS from VPC"
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+
+  tags = {
+    Name = "NKsecuritygroup"
+  }
+}
+
+resource "aws_route_table_association" "a" {
+  subnet_id      = aws_subnet.NKsubnet.id
+  route_table_id = aws_route_table.rtb.id
+}
+
+resource "aws_instance" "new" {
+  ami           = "ami-05ba3a39a75be1ec4"
+  instance_type = "t2.micro"
+  subnet_id      = aws_subnet.NKsubnet.id
+  tags = {
+    Name = "HelloWorld"
+  }
+}
