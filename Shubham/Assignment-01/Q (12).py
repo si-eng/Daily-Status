@@ -1,3 +1,4 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+import calendar
+y = int(input("input the year :"))
+m = int (input("intput the month :"))
+print(calendar.month(y,m))
