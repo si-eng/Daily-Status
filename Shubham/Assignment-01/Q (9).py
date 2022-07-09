@@ -1,3 +1,2 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+a = (11, 12, 2014)
+print ("date: %i / %i / %i"%a)
