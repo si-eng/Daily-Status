@@ -1,3 +1,5 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+a = int(input("Input an integer : "))
+n1 = int( "%s" % a )
+n2 = int( "%s%s" % (a,a) )
+n3 = int( "%s%s%s" % (a,a,a) )
+print (n1+n2+n3)
