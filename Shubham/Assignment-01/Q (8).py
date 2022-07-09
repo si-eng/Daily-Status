@@ -1,3 +1,2 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+color_list = ["Red","Green","White" ,"Black"]
+print (color_list[0],color_list[3])
