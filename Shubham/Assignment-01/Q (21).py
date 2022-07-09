@@ -1,3 +1,5 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+n=int(input("enter number"))
+  if n%2 == 0:
+      print("Even number")
+ else:
+      print("Odd")
