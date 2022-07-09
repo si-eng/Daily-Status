@@ -1,0 +1,61 @@
+resource "aws_lb" "nandanlb2" {
+  name               = "Nandan-lb2"
+  internal           = false
+  load_balancer_type = "application"
+  security_groups    = ["sg-0166a12f952a06149"]
+  subnets            = ["subnet-0e9dc6a0b3c409455","subnet-073ccdaa5fa6293da"]
+
+
+
+
+  tags = {
+    Environment = "production"
+  }
+}
+
+resource "aws_lb_target_group" "nandantg" {
+  name     = "NANDAN-TG"
+  port     = 80
+  protocol = "HTTP"
+  vpc_id   = "vpc-07812173a75076692"
+}
+resource "aws_instance" "nandan1" {
+  ami           = "ami-05ba3a39a75be1ec4"
+  instance_type = "t2.micro"
+  tags = {
+    Name = "for lb"
+  }
+}
+resource "aws_instance" "nandan2" {
+  ami           = "ami-05ba3a39a75be1ec4"
+  instance_type = "t2.micro"
+  tags = {
+    Name = "for lb-2"
+  }
+}
+resource "aws_lb_target_group_attachment" "test1" {
+  target_group_arn = aws_lb_target_group.nandantg.arn
+  target_id        = aws_instance.nandan2.id
+  port             = 80
+ 
+}
+
+resource "aws_lb_target_group_attachment" "test2" {
+  target_group_arn = aws_lb_target_group.nandantg.arn
+  target_id        = aws_instance.nandan1.id
+  port             = 80
+  
+}
+
+resource "aws_lb_listener" "front_end" {
+  load_balancer_arn = aws_lb.nandanlb2.arn
+  port              = "80"
+  protocol          = "HTTP"
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.nandantg.arn
+  }
+}
+provider "aws"{
+    region = "ap-south-1"
+}
