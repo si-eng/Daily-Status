@@ -148,7 +148,10 @@
 # print(myfunc([1,4,2,3,5,6,4,4]))
 
 
-# 23.
+# 23. Write a Python program to get the n (non-negative integer) copies of the first 2 characters of a given string.
+#  Return the n copies of the whole string if the length is less than 2.
+
+
 
 # 24.program to test whether a passed letter is a vowel or not
 #  n=input("enter Value")
@@ -615,7 +618,21 @@
 # print('%.9s' % str_num)
 # print('%.10s' % str_num)
 
-#121. 
+#121. Write a Python program to determine whether variable is defined or not.
+# try:
+#   x = 1
+# except NameError:
+#   print("Variable is not defined....!")
+# else:
+#   print("Variable is defined.")
+# try:
+#   y
+# except NameError:
+#   print("Variable is not defined....!")
+# else:
+#   print("Variable is defined.")
+  
+
 
 #122.Write a Python program to empty a variable without destroying it.
 # d = {"x":200}
@@ -671,18 +688,44 @@
 # d=""" "neel" """
 # print(d)
 
-#131
+#131. Write a Python program to split a variable length string into variables.
+# var_list = ['a', 'b', 'c']
+# x, y, z = (var_list + [None] * 3)[:3]
+# print(x, y, z)
+# var_list = [10, 60.5]
+# x, y = (var_list + [None] * 2)[:2]
+# print(x, y )
 
 # 132. Write a Python program to list home directory without absolute path
 # import os.path
 # print(os.path.expanduser('~'))
 
-#133
+#133. Write a Python program to calculate the time runs (difference between start and current time) of a program.
+# import time
 
-#134. Write a Python program to input two integers in a single line
-# print("Input the value of x & y & z")
-# x, y, z = map(int, input().split())
-# print("The value of x & y &z are: ",x,y,z)
+# starting time
+# start = time.time()
+
+# program body starts
+# for i in range(10):
+#     print(i)
+
+# sleeping for 1 sec to get 10 sec runtime
+# time.sleep(1)
+
+# program body ends
+
+# end time
+# end = time.time()
+
+# total time taken
+# print(f"Runtime of the program is {end - start}")
+
+#134. Write a Python program to input two integers in a single line.
+# print("Input the value of x & y")
+# x, y = map(int, input().split())
+# print("The value of x & y are: ",x,y)
+
 
 #135. Write a Python program to print a variable without spaces between values.
 # x = int(input("enter number: "))
@@ -693,6 +736,9 @@
 # print(t2)
 
 #136.  Write a Python program to find files and skip directories of a given directory.
+
+
+
 
 
 # 137. Write a Python program to extract single key-value pair of a dictionary in variables
@@ -731,7 +777,7 @@
 # x =  int(input("enter number: "))
 # print(format(x, '02x'))
 
-#142. 142. Write a Python program to check if every consecutive sequence of zeroes is followed by a consecutive sequence of ones of same length in a given string. Return True/False. Go to the editor
+#142. Write a Python program to check if every consecutive sequence of zeroes is followed by a consecutive sequence of ones of same length in a given string. Return True/False. Go to the editor
 # Original sequence: 01010101
 # Check if every consecutive sequence of zeroes is followed by a consecutive sequence of ones in the said string:
 # True
