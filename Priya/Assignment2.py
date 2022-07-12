@@ -152,4 +152,39 @@
 # elif x < z and z < y:
 #     print(z)
 
+#21 Write a Python program to find the number of notes (Sample of notes: 10, 20, 50, 100, 200 and 500 ) against a given amount
+
+# def no_notes(a):
+#   Q = [500, 200, 100, 50, 20, 10]
+#   x = 0
+#   for i in range(6):
+#     q = Q[i]
+#     x += int(a / q)
+#     a = int(a % q)
+#   if a > 0:
+#     x = -1
+#   return x
+# print(no_notes(880))
+#print(no_notes(1000))
+
+#24 Write a Python program to find the number of divisors of a given integer is even or odd
+
+# def divisor(n):
+#   x = len([i for i in range(1,n+1) if not n % i])
+#   return x
+# print(divisor(15))
+# print(divisor(12))
+# print(divisor(9))
+# print(divisor(6))
+# print(divisor(3))
+
+#25 Write a Python program to find the digits which are absent in a given mobile number.
+
+# def absent_digits(n):
+#   all_nums = set([0,1,2,3,4,5,6,7,8,9])
+#   n = set([int(i) for i in n])
+#   n = n.symmetric_difference(all_nums)
+#   n = sorted(n)
+#   return n
+# print(absent_digits([9,8,7,4,6,3,2,1,8]))
 
