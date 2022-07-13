@@ -4,7 +4,7 @@
 #         return True
 #       else:
 #         return False;
-# print(test_distinct([1,5,7,9]))
+# print(test_distinct([1,5,7]))
 # print(test_distinct([2,4,5,5,7,9]))
 
 #2. Write a Python program to create all possible strings by using 'a', 'e', 'i', 'o', 'u'. Use the characters exactly once.
