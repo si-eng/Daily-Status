@@ -1,0 +1,13 @@
+{
+    "Id": "Policy1657878708145",
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "Stmt1657878705728",
+        "Action": "s3:*",
+        "Effect": "Allow",
+        "Resource": "arn:aws:s3:::sthreecicd/*",
+        "Principal": "*"
+      }
+    ]
+  }
