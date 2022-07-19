@@ -188,3 +188,85 @@
 #   return n
 # print(absent_digits([9,8,7,4,6,3,2,1,8]))
 
+# 32. Write a python program to find heights of the top three building in descending order from eight given buildings
+
+# print("Input the heights of eight buildings:")
+# l = [int(input()) for i in range(8)]
+# print("Heights of the top three buildings:")
+# l = sorted(l)
+# print(*l[:4:-1], sep='\n')
+
+#51. Write a Python program to find the difference between the largest integer and the smallest integer which are created by 8 numbers from 0 to 9. 
+# The number that can be rearranged shall start with 0 as in 00135668.
+
+# print("Input an integer created by 8 numbers from 0 to 9.:")
+# num = list(input())
+# print("Difference between the largest and the smallest integer from the given integer:")
+# print(int("".join(sorted(num,reverse=True))) - int("".join(sorted(num))))
+
+
+# 54. if you draw a straight line on a plane, the plane is divided into two regions. For example, if you pull two straight lines in parallel, 
+# you get three areas, and if you draw vertically one to the other you get 4 areas.
+#Write a Python program to create maximum number of regions obtained by drawing n given straight lines. 
+
+# while True:
+#     print("Input number of straight lines (o to exit): ")
+#     n=int(input())
+#     if n<=0:
+#         break
+#     print("Number of regions:") 
+#     print((n*n+n+2)//2)
+
+
+#56. Write a Python program to sum of all numerical values (positive integers) embedded in a sentence. 
+# import re
+# string=input ("user input : ")
+# number=re.findall('\d+',string)
+# sum=0
+# for j in number:
+#     sum+=int(j)
+# print(sum)
+
+
+#58. When character are consecutive in a string , it is possible to shorten the character string by replacing the character with a certain rule. For example, 
+# in the case of the character string YYYYY, if it is expressed as # 5 Y, it is compressed by one character.
+#Write a Python program to restore the original string by entering the compressed string with this rule. However, the # character does not appear in the restored character string.
+
+# def restore_original_str(a1):
+#       result = ""
+#   ind = 0
+#   end = len(a1)
+#   while ind < end:
+#     if a1[ind] == "#":
+#       result += a1[ind + 2] * int(a1[ind + 1])
+#       ind += 3
+#     else:
+#       result += a1[ind]
+#       ind += 1
+#   return result
+# print("Original text:","XY#6Z1#4023")
+# print(restore_original_str("XY#6Z1#4023"))
+# print("Original text:","#39+1=1#30")
+# print(restore_original_str("#39+1=1#30"))
+
+
+#59. A convex polygon is a simple polygon in which no line segment between two points on the boundary ever goes outside the polygon. 
+# Equivalently, it is a simple polygon whose interior is a convex set. In a convex polygon, all interior angles are less than or equal to 180 degrees, while in a strictly convex polygon all interior angles are strictly less than 180 degrees.
+#Write a Python program that compute the area of the polygon . The vertices have the names vertex 1, vertex 2, vertex 3, ... vertex n according to the order of edge connections
+
+# def poly_area(c):
+#       add = []
+#   for i in range(0, (len(c) - 2), 2):
+#     add.append(c[i] * c[i + 3] - c[i + 1] * c[i + 2])
+#     add.append(c[len(c) - 2] * c[1] - c[len(c) - 1] * c[0])
+#     return abs(sum(add) / 2)
+# no_sides = int(input('Input number of sides: '))
+# cord_data = []
+# for z in range(no_sides):
+#     print("Side:",z+1)
+#     print("Input the Coordinate:")
+#     x = int(input('Input Coordinate x:'))
+#     y = int(input('Input Coordinate y:'))
+#     cord_data.append(x)
+#     cord_data.append(y)
+# print("\nArea of the Polygon:",poly_area(cord_data))
