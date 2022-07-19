@@ -186,7 +186,7 @@
 #   n = n.symmetric_difference(all_nums)
 #   n = sorted(n)
 #   return n
-# print(absent_digits([9,8,7,4,6,3,2,1,8]))
+# print(absent_digits([9,8,7,4,6,3,1,8]))
 
 # 32. Write a python program to find heights of the top three building in descending order from eight given buildings
 
