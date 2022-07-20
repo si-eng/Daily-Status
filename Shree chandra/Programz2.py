@@ -70,6 +70,11 @@ installed_packages_list = sorted(["%s==%s" % (i.key, i.version)
 for m in installed_packages_list:
     print(m)"""
 
+#144 Write a Python program to convert integer to string.
+"""language = "Python"
+version = 3.6
+print('Language: ' + language + ',' + ' Version: ' + str(version))"""
+
 
 
 
