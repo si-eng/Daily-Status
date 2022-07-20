@@ -75,6 +75,15 @@ for m in installed_packages_list:
 version = 3.6
 print('Language: ' + language + ',' + ' Version: ' + str(version))"""
 
+#4. Write a Python program to add two positive integers without using the '+' operator. Go to the editor
+"""def Add(x, y):
+    while (y != 0):
+        carry = x & y
+        x = x ^ y
+        y = carry << 1
+    return x
+print(Add(156, 32))"""
+
 
 
 
