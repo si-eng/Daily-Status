@@ -1,3 +1,10 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+Test Data :
+ color_list_1 = set(["White", "Black", "Red"])
+ color_list_2 = set(["Red", "Green"])
+ color_list_1 = set(["White", "Black", "Red"])
+ color_list_2 = set(["Red", "Green"])
+ print("Original set elements:")
+ print(color_list_1)
+ print(color_list_2)
+ print("Differenct of color_list_1 and color_list_2:")
+ print(color_list_1 - color_list_2)
