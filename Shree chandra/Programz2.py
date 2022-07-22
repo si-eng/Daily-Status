@@ -1,4 +1,4 @@
-#2 Write a Python program to create all possible strings by using ‘a’, ‘e’, ‘i’, ‘o’, ‘u’. Use the characters exactly once."""import random
+#2 Write a Python program to create all possible strings by using ‘a’, ‘e’, ‘i’, ‘o’, ‘u’. Use the characters exactly once
 """char_list = ['a','e','i','o','u']
 random.shuffle(char_list)
 print(''.join(char_list))"""
@@ -82,7 +82,7 @@ print('Language: ' + language + ',' + ' Version: ' + str(version))"""
         x = x ^ y
         y = carry << 1
     return x
-print(Add(156, 32))"""
+print(Add(156, 32))""""
 
 
 
