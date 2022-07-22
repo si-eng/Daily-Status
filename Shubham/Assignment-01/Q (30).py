@@ -1,3 +1,4 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+b = int(input("Input the base : "))
+h = int(input("Input the height : "))
+area = b*h/2
+print("Area of Triangle= ", area)
