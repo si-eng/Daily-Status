@@ -1,3 +1,6 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+import os
+# Access all environment variables 
+print('*----------------------------------*')
+print(os.environ)                                              # list of all environ.
+print('*----------------------------------*')
+print(os.environ['COMPUTERNAME'])                              # printing a perticular environ 
