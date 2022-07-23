@@ -1,3 +1,7 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+import os
+
+filename = input("ENter file Name: ")
+
+print(os.path.abspath(filename))  
+# import os
+# return os.path.abspath('path_fname')
