@@ -1,3 +1,5 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+name = input("Enter name: ")
+age = int(input("Enter age: "))
+address = input("Enter address: ")
+
+print (f"Name = {name}\nAge = {age}\nAddress = {address}")
