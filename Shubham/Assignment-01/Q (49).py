@@ -1,3 +1,4 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+from os import listdir
+from os.path import isfile, join
+files_list = [f for f in listdir('D:/') if isfile(join('D:/', f))]
+print(files_list)
