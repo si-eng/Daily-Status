@@ -1,3 +1,3 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+n = int(input("Enter any no. : "))
+for i in range(n):
+    print('*',end ="")
