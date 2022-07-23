@@ -1,3 +1,4 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+n = int (input("Enter a no. : "))
+
+sum = (n*(n+1))/2
+print(f"Sum of first {n} positive intergers is : {int(sum)}")
