@@ -1,3 +1,5 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+import getpass
+import os
+print(getpass.getuser())
+
+print(os.environ['USERNAME']) 
