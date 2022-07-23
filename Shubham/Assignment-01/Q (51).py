@@ -1,3 +1,4 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+import cProfile
+def sum():
+    print(1+2)
+cProfile.run('sum()')
