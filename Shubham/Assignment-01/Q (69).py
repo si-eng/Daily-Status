@@ -1,3 +1,10 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+a = int(input("enter first no. : "))
+b = int(input("enter second no. : "))
+c = int(input("enter third no. : "))
+
+list = []
+list.append(a)
+list.append(b)
+list.append(c)
+list.sort()
+print(list)
