@@ -1,3 +1,3 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+height = float(input("Input your height in Feet: "))
+weight = float(input("Input your weight in Kilogram: "))
+print("Your body mass index is: ", weight / (height * height))
