@@ -105,6 +105,68 @@ print("Name of the date: ",weeks[w])"""
 """import random
 print(random.sample([i for i in range(1,100) if i%2==0], 10))"""
 
+#91 Write a Python program to find the position of the second occurrence of a given string in another given string. If there is no such string return -1.
+"""def find_string(txt, str1):
+	return txt.find(str1, txt.find(str1)+1)
+print(find_string("The quick brown fox jumps over the lazy dog", "the"))
+print(find_string("the quick brown fox jumps over the lazy dog", "the"))"""
+
+#115 Write a Python program to generate and prints a list of numbers from 1 to 10.
+"""nums = range(1,10)
+print(list(nums))
+print(list(map(str, nums)))"""
+
+#140 Write a Python program to convert all items in a given list to float values
+"""nums = ['0.49', '0.54', '0.54', '0.54', '0.54', '0.54', '0.55', '0.54', '0.54',  '0.54', 
+ '0.55', '0.55', '0.55', '0.54', '0.55', '0.55', '0.54', '0.55', '0.55', '0.54']
+print("Original list:")
+print(nums)
+print("\nList of Floats:")
+nums_of_floats = []
+for item in nums:
+    nums_of_floats.append(float(item))
+print(nums_of_floats)"""
+
+#98 Write a Python program to check whether a sequence of numbers has an increasing trend or not.
+"""def increasing_trend(nums):
+    if (sorted(nums) == nums):
+        return True
+    else:
+        return False
+print(increasing_trend([1,2,3,4]))
+print(increasing_trend([1,2,5,3,4]))
+print(increasing_trend([-1,-2,-3,-4]))
+print(increasing_trend([-4,-3,-2,-1]))
+print(increasing_trend([1,2,3,4,0]))"""
+
+
+#100 Write a Python program to compute the sum of all items of a given array of integers where each integer is multiplied by its index. Return 0 if there is no number
+"""def sum_index_multiplier(nums):
+	return sum(j*i for i, j in enumerate(nums))
+print(sum_index_multiplier([1,2,3,4]))
+print(sum_index_multiplier([-1,-2,-3,-4]))
+print(sum_index_multiplier([]))"""
+
+
+#92 Write a Python program to compute cumulative sum of numbers of a given list.
+"""def nums_cumulative_sum(nums_list):
+  return [sum(nums_list[:i+1]) for i in range(len(nums_list))]
+print(nums_cumulative_sum([10, 20, 30, 40, 50, 60, 7]))
+print(nums_cumulative_sum([1, 2, 3, 4, 5]))
+print(nums_cumulative_sum([0, 1, 2, 3, 4, 5]))"""
+
+
+#101 Write a Python program to find the name of the oldest student from a given dictionary containing the names and ages of a group of students 
+"""def oldest_student(students):
+	return max(students, key=students.get)
+print(oldest_student({"Charlie": 12, "Kriti": 11, 
+                      "Sara": 14, "Falguni pathak": 11, 
+                      "Nida rafiq": 15})) 
+print(oldest_student({"Nida rafiq": 12, "Jackey john": 12.2, 
+                      "Sameer": 12.4, "Prem raichand": 12.6, 
+                      "Bobby": 12.7}))""" 
+
+
 
 
 
