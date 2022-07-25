@@ -166,6 +166,107 @@ print(oldest_student({"Nida rafiq": 12, "Jackey john": 12.2,
                       "Sameer": 12.4, "Prem raichand": 12.6, 
                       "Bobby": 12.7}))""" 
 
+#103 Write a Python program to check whether two given lines are parallel or not.
+"""def parallel_lines(line1, line2):
+  return line1[0]/line1[1] == line2[0]/line2[1]
+print(parallel_lines([2,3,4], [2,3,8]))
+print(parallel_lines([2,3,4], [4,-3,8]))   """ 
+
+#121 Write a Python program to create a coded string from a given string, using specified formula.
+"""def test(str):
+	return str.translate(str.maketrans('PTSHA', '90168'))
+str = "PHP"
+print("Original string: ",str)
+print("Coded string: ",test(str))
+str = "JAVASCRIPT"
+print("\nOriginal string: ",str)
+print("Coded string: ",test(str))"""
+
+
+#60 Write a Python program to cut out words of 3 to 6 characters length from a given sentence not more than 1024 characters.
+"""print("Input a sentence (1024 characters. max.)")
+yy = input()
+yy = yy.replace(",", " ")
+yy = yy.replace(".", " ")
+print("3 to 6 characters length of words:")
+print(*[y for y in yy.split() if 3 <= len(y) <= 6])"""
+
+
+#73 Write a Python program to remove the duplicate elements of a given array of numbers such that each element appear only once and return the new length of the given array
+"""def remove_duplicates(nums):
+    for i in range (len(nums)-1, 0, -1):
+        if nums[i] == nums[i-1]:
+            del nums[i-1]
+    return len(nums)
+print(remove_duplicates([0,0,1,1,2,2,3,3,4,4,4]))
+print(remove_duplicates([1, 2, 2, 3, 4, 4]))"""
+
+
+#75 Write a Python program to remove all instances of a given value from a given array of integers and find the length of the new array
+"""def remove_element(array_nums, val):
+    i = 0
+    while i < len(array_nums):
+        if array_nums[i] == val:
+            array_nums.remove(array_nums[i])
+        else:
+            i += 1
+    return len(array_nums)
+print(remove_element([1, 2, 3, 4, 5, 6, 7, 5], 5))
+print(remove_element([10,10,10,10,10], 10)) 
+print(remove_element([10,10,10,10,10], 20)) 
+print(remove_element([], 1))"""
+
+
+#87 Write a Python program to check whether a given employee code is exactly 8 digits or 12 digits. Return True if the employee code is valid and False if it's not.
+"""def is_valid_emp_code(emp_code):
+ return len(emp_code) in [8, 12] and emp_code.isdigit()
+print(is_valid_emp_code('12345678'))
+print(is_valid_emp_code('1234567j'))
+print(is_valid_emp_code('12345678j'))
+print(is_valid_emp_code('123456789123'))
+print(is_valid_emp_code('123456abcdef'))"""
+
+
+#111 Write a Python program to check whether two given circles (given center (x,y) and radius) are intersecting. Return true for intersecting otherwise false.
+"""def is_circle_collision(circle1, circle2):
+   x1, y1, r1 = circle1
+   x2, y2, r2 = circle2
+   distance = ((x1-x2)**2 + (y1-y2)**2)**0.5
+   return distance <= r1 + r2
+print(is_circle_collision([1,2, 4], [1,2, 8]))
+print(is_circle_collision([0,0, 2], [10,10, 5]))"""
+
+
+#56  Write a Python program to sum of all numerical values embedded in a sentence.
+"""import re
+string=input ("user input : ")
+number=re.findall('\d+',string)
+sum=0
+for j in number:
+    sum+=int(j)
+print(sum)"""
+
+
+#59 A convex polygon is a simple polygon in which no line segment between two points on the boundary ever goes outside the polygon. Equivalently, it is a simple polygon whose interior is a convex set. In a convex polygon, all interior angles are less than or equal to 180 degrees, while in a strictly convex polygon all interior angles are strictly less than 180 degrees.
+"""def poly_area(c):
+  add = []
+  for i in range(0, (len(c) - 2), 2):
+    add.append(c[i] * c[i + 3] - c[i + 1] * c[i + 2])
+    add.append(c[len(c) - 2] * c[1] - c[len(c) - 1] * c[0])
+    return abs(sum(add) / 2)
+no_sides = int(input('Input number of sides: '))
+cord_data = []
+for z in range(no_sides):
+    print("Side:",z+1)
+    print("Input the Coordinate:")
+    x = int(input('Input Coordinate x:'))
+    y = int(input('Input Coordinate y:'))
+    cord_data.append(x)
+    cord_data.append(y)
+print("\nArea of the Polygon:",poly_area(cord_data))""" 
+
+
+
 
 
 
