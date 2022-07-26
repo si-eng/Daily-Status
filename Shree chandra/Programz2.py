@@ -265,6 +265,65 @@ for z in range(no_sides):
     cord_data.append(y)
 print("\nArea of the Polygon:",poly_area(cord_data))""" 
 
+#49 Write a Python program which reads the two adjoined sides and the diagonal of a parallelogram and check whether the parallelogram is a rectangle or a rhombus.
+"""a = float(input("Enter the side of parallelogram: "))
+b = float(input("Enter the another side of parallelogram: "))
+c = float(input("Enter diagonal of parallelogram: "))
+if c**2 == a**2+b**2 :
+    print("This is a rectangle.")
+elif a == b:
+    print("This is a rhombus.")
+else:
+    print("not a rectangel or rhombus.")"""
+
+#14 Write a Python program to add two positive integers without using the '+' operator
+"""def Add(x, y):
+    while (y != 0):
+        carry = x & y 
+        x = x ^ y
+        y = carry << 1
+    return x
+print(Add(17,5))"""
+
+#26 Write a Python program to compute the summation of the absolute difference of all distinct pairs in a given array 
+"""def sum_distinct_pairs(arr):
+    result = 0
+    i = 0
+    while i<len(arr):
+        result+=i*arr[i]-(len(arr)-i-1)*arr[i]
+        i+=1
+    return result
+print(sum_distinct_pairs([1,2,3]))
+print(sum_distinct_pairs([1,4,5]))"""
+
+#32 Write a python program to find heights of the top three building in descending order from eight given buildings
+"""print("Input the heights of eight buildings:")
+l = [int(input()) for i in range(8)]
+print("Heights of the top three buildings:")
+l = sorted(l)
+print(*l[:4:-1], sep='\n')"""
+
+#43 Write a Python program to test whether two lines PQ and RS are parallel. The four points are P(x1, y1), Q(x2, y2), R(x3, y3), S(x4, y4)
+"""print("Input x1,y1,x2,y2,x3,y3,xp,yp:")
+x1, y1,x2, y2, x3, y3, x4, y4 = map(float, input().split())
+print('PQ and RS are parallel.' if abs((x2 - x1)*(y4 - y3) - (x4 - x3)*(y2 - y1)) < 1e-10 else 'PQ and RS are not parallel')"""
+
+#51 Write a Python program to find the difference between the largest integer and the smallest integer which are created by 8 numbers from 0 to 9. The number that can be rearranged shall start with 0 as in 00135668
+"""print("Input an integer created by 8 numbers from 0 to 9.:")
+num = list(input())
+print("Difference between the largest and the smallest integer from the given integer:")
+print(int("".join(sorted(num,reverse=True))) - int("".join(sorted(num))))"""
+
+#54 Write a Python program to create maximum number of regions obtained by drawing n given straight lines
+"""while True:
+    print("Input number of straight lines (o to exit): ")
+    n=int(input())
+    if n<=0:
+        break
+    print("Number of regions:") 
+    print((n*n+n+2)//2)"""
+
+
 
 
 
