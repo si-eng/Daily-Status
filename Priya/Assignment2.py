@@ -35,7 +35,7 @@
 #6. Write a Python program to print a long text, convert the string to a list and print all the words and their frequencies.
 # string_words = '''India Republic Day is celebrated on 26 January every year. It was 1950 when Dr. Rajendra Prasad our first president hoisted the tricolor on Rajpath, Delhi. Our first chief guest was the President of Indonesia, Mr. Sukarno. Similarly, in 2021 Boris Johnson, Prime Minister of the United Kingdom was invited as a guest of honor but the planning has been recently canceled due to the corona crisis. Every year we invite various famous personalities to be a part of our celebration.
 
-# We have been celebrating this occasion since the year 1950 and it has been declared a national holiday. We celebrate this day because we got our constitution on this day. It took 2 years, 11 months, and 18 days to make our constitution and was completed by 26 November 1949. We also celebrate 26 November as our Constitution day. On 26 January 1950, it was announced to enforce our Constitution for the first time.
+# We have been celebrating this occasion since the 1950 and it has been declared a national holiday. We celebrate this day because we got our constitution on this day. It took 2 years, 11 months, and 18 days to make our constitution and was completed by 26 November 1949. We also celebrate 26 November as our Constitution day. On 26 January 1950, it was announced to enforce our Constitution for the first time.
 
 # We celebrate this occasion with great enthusiasm and Delhi is the center of the Republic Day celebration. India will celebrate its 73rd Republic Day in the year 2022. The cultural programs will be fewer in number and protocols for COVID-19 will be followed strictly.
 
