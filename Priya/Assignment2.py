@@ -176,7 +176,7 @@
 # print(divisor(12))
 # print(divisor(9))
 # print(divisor(6))
-# print(divisor(3))
+
 
 #25 Write a Python program to find the digits which are absent in a given mobile number.
 
