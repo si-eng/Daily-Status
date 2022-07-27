@@ -1,3 +1,4 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+n=1
+if n == 1:
+   print("\nFirst day of a Month!")
+print()
