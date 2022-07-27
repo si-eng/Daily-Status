@@ -1,3 +1,11 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+
+###################################################
+# Will excuted only in liux OS
+###################################################
+
+
+import os
+print("\nEffective group id: ",os.getegid())
+print("Effective user id: ",os.geteuid())
+print("Real group id: ",os.getgid())
+print("List of supplemental group ids: ",os.getgroups())
