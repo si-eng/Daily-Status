@@ -1,3 +1,7 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+from http.client import HTTPConnection
+conn = HTTPConnection("seasia.com")
+conn.request("GET", "/")  
+result = conn.getresponse()
+# retrieves the entire contents.  
+contents = result.read() 
+print(contents)
