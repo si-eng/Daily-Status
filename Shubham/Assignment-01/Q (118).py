@@ -1,3 +1,5 @@
-print(abs.__doc__)
-x = abs(-67.78)
+
+no = int(input("Enter a integer no to convert into Betyarray: "))
+
+x = bytearray(no)
 print(x)
