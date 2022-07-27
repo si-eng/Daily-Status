@@ -1,3 +1,8 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+a = int (input("Enter value of a: "))
+b = int (input("Enter value of b: "))
+
+c = b
+b = a
+a = c
+print(f'a = {a}')
+print(f'b = {b}')
