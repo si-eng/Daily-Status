@@ -1,3 +1,4 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+x = b'Abc'
+
+print("\nConvert bytes of the said string to a list of integers:")
+print(list(x))
