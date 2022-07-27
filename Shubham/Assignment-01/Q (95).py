@@ -1,3 +1,7 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+str = input('Enter any value: ')
+
+try:
+    i = float(str)
+    print("It's a numaric Value")
+except (ValueError, TypeError):
+    print('\nNot numeric')
