@@ -1,3 +1,3 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+s = sum([10,20,30])
+print("\nSum of the container: ", s)
+print()
