@@ -1,3 +1,2 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+letter = input("enter a character: ")
+print("Its ASCII code is : " ,ord(letter))
