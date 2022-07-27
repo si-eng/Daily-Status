@@ -1,3 +1,4 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+list_of_colors = ['Red', 'White', 'Black']  
+colors = '-'.join(list_of_colors)
+
+print("\nAll Colors: "+colors)
