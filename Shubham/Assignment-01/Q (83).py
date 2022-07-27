@@ -1,3 +1,3 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+num = [2, 3, 4, 5]
+intger = int(input("Enter a intger to compare: "))
+print(all(x > intger for x in num))
