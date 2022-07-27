@@ -1,3 +1,7 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+string  = input("Enter a word: ")
+hash = ""
+
+for i in string:
+    hash += str(ord(i))
+
+print(hash)
