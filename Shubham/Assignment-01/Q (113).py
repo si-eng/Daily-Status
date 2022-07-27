@@ -1,3 +1,7 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+a = input("enter a number: ")
+
+try:
+    b = float(a)
+    
+except:
+    print("not a numarice value. ")
