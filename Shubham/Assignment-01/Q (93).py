@@ -1,3 +1,4 @@
-print(abs.__doc__)
-x = abs(-67.78)
-print(x)
+x = 34
+print("\nIdentity: ",x)
+print("\nType: ",type(x))
+print("\nValue: ",id(x))
