@@ -71,7 +71,7 @@
  for key in os_profile:
    if hasattr(pl, key):
      print(key +  ": " + str(getattr(pl, key)()))             #(The getattr() function returns the value of the specified attribute from the specified object.) """
-#14. Write a Python program to add two positive integers without using the '+' operator. Go to the editor
+#14 Write a Python program to add two positive integers without using the '+' operator. Go to the editor
 #Note: Use bit wise operations to add two numbers.
 """ def Add(x, y):
      while (y != 0):
