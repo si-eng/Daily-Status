@@ -16,9 +16,6 @@ variable "owner" {
   default = "ThirdParty"
 }
 
-# add your github detailes below
-# username, repo nmae, branch name are case sencitive. 
-
 variable "github_token" {
   type        = string
   description = "Github OAuth token"
@@ -44,10 +41,6 @@ variable "branch" {
   description = "branch name"
   default="master"
 }
-
-
-
-
 
 variable "service_name" {
   default = "Django"
