@@ -1,6 +1,3 @@
-
-
-
 variable "resource_tag_name" {
   description = "Resource tag name for cost tracking"
   type = string
