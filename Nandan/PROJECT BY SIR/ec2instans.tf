@@ -11,20 +11,13 @@ resource "aws_instance" "server1" {
   }
   
   user_data = <<-EOF
+                
                 #!/bin/bash
                 sudo apt update -y
                 sudo apt install apache2 -y
                 sudo systemctl start apache2
-                sudo bash -c 'server1 > /var/www/html/index.html'
-              
-                #!/bin/bash -xe
-                sudo apt update
-                sudo apt install ruby -y
-                sudo apt install wget
-                wget https://aws-codedeploy-us-east-1.s3.amazonaws.com/latest/install
-                sudo chmod +x ./install
-                sudo ./install auto
-                sudo service codedeploy-agent status
+                sudo bash -c 'echo your very first web server > /var/www/html/index.html'
+
                 EOF
 }                
 resource "aws_instance" "server2" {
@@ -39,20 +32,16 @@ resource "aws_instance" "server2" {
   }
   
   user_data = <<-EOF
+
+
                 #!/bin/bash
                 sudo apt update -y
                 sudo apt install apache2 -y
                 sudo systemctl start apache2
-                sudo bash -c 'server2 > /var/www/html/index.html'
+                sudo bash -c 'echo your very first web server > /var/www/html/index.html'
 
-                #!/bin/bash -xe
-                sudo apt update
-                sudo apt install ruby -y
-                sudo apt install wget
-                wget https://aws-codedeploy-us-east-1.s3.amazonaws.com/latest/install
-                sudo chmod +x ./install
-                sudo ./install auto
-                sudo service codedeploy-agent status
+
+                
               EOF
 
 }
