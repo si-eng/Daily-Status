@@ -1,5 +1,5 @@
-resource "aws_codestarconnections_connection" "gitwebhook" {
-  name          = "gitwebhook"
+resource "aws_codestarconnections_connection" "mygithub" {
+  name          = "mygithub"
   provider_type = "GitHub"
 }
 
@@ -40,8 +40,8 @@ resource "aws_codepipeline" "djangoCodePipeline" {
     name = "Deploy_to_EC2"
 
     action {
-      name = "Deploy"
-      category = "Deploy"
+      name = "codeDeploy"
+      category = "codeDeploy"
       owner = "AWS"
       provider = "CodeDeploy"
       input_artifacts = ["SourceArtifact"]
