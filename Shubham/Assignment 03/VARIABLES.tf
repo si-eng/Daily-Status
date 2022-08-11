@@ -43,7 +43,7 @@ variable "branch" {
 }
 
 variable "service_name" {
-  default = "Django"
+  default = "myservice"
 }
 
 
