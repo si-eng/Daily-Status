@@ -1,5 +1,5 @@
 resource "aws_iam_role" "djangodeploy" {
-  name = "djangodeploy-role"
+  name = "myrole"
 
   assume_role_policy = <<EOF
 {
@@ -24,7 +24,7 @@ EOF
 
 resource "aws_iam_role_policy_attachment" "AWSCodeDeployRole" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"
-  role       = aws_iam_role.djangodeploy.name
+  role       = aws_iam_role.myrole.name
 }
 
 
@@ -42,7 +42,7 @@ resource "aws_sns_topic" "djangodeploy" {
 resource "aws_codedeploy_deployment_group" "djangodeploy" {
   app_name              = aws_codedeploy_app.djangodeploy.name
   deployment_group_name = "djangodeploy-group"
-  service_role_arn      = aws_iam_role.djangodeploy.arn
+  service__arn      = aws_iam_role.djangodeploy.arn
 
   ec2_tag_set {
     ec2_tag_filter {
