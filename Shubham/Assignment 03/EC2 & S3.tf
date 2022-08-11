@@ -10,9 +10,6 @@ resource "aws_instance" "host" {
   tags = {
     Name = "Deployment"
   }
-  volume_tags = {
-    "Name" = "terraform"
-  }
   user_data = <<-EOF
                 #!/bin/bash
                 sudo apt update -y
@@ -30,7 +27,7 @@ resource "aws_instance" "host" {
 resource "aws_s3_bucket" "bucket" {
   bucket = "<BUCKET NAME>"  
   tags = {
-    Name        = "My s3 bucket"
+    Name        = "s3bucket"
   }  
 }
 
