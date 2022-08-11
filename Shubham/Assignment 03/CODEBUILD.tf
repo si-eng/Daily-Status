@@ -1,5 +1,5 @@
 resource "aws_iam_role" "djangobuild" {
-  name = "djangobuild"
+  name = "shubham"
 
   assume_role_policy = <<EOF
 {
@@ -19,7 +19,7 @@ EOF
 
 
 resource "aws_iam_role_policy" "djangobuild" {
-  role = aws_iam_role.djangobuild.name
+  role = aws_iam_role.shubham.name
 
   policy = <<EOF
 {
@@ -59,7 +59,7 @@ EOF
 
 
 resource "aws_iam_role_policy" "djangobuildpolicy2" {
-  role = aws_iam_role.djangobuild.name
+  role = aws_iam_role.shubham.name
 
   policy = <<EOF
 {
@@ -94,7 +94,7 @@ EOF
 }
 
 resource "aws_iam_role_policy" "djangobuild3" {
-  role = aws_iam_role.djangobuild.name
+  role = aws_iam_role.shubham.name
 
 policy = <<POLICY
 {
@@ -151,8 +151,8 @@ POLICY
 
 
 resource "aws_codebuild_project" "djangobuild" {
-  name          = "djangobuild-project"
-  description   = "test_djangobuild_project"
+  name          = "shubham-project"
+  description   = "test_shubham_project"
   build_timeout = "5"
 
   service_role  = aws_iam_role.djangobuild.arn
@@ -170,15 +170,15 @@ resource "aws_codebuild_project" "djangobuild" {
     image_pull_credentials_type = "CODEBUILD"
 
       environment_variable {
-      name  = "djangobuild"
-      value = "djangobuild"
+      name  = "shubham"
+      value = "shubham"
     }
 
     }
 
     source {
     type            = "GITHUB"
-    location        = "https://github.com/Vikrant1020/Django.git"
+    location        = "https://github.com/ShubhamChouhan9001/django-web2.git"
     git_clone_depth = 1
   }
 
