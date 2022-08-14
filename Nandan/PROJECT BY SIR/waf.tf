@@ -1,7 +1,7 @@
-resource "aws_wafv2_web_acl" "seasia" {
+resource "aws_wafv2_web_acl" "seasia"{
   name        = "managed-rule-seasia"
   description = "seasia managed rule."
-  scope       = "REGIONAL"
+  scope       = "CLOUDFRONT"
 
   default_action {
     allow {}
@@ -42,4 +42,12 @@ resource "aws_wafv2_web_acl" "seasia" {
       sampled_requests_enabled   = false
     }
   }
+   visibility_config {
+    cloudwatch_metrics_enabled = false
+    metric_name                = "friendly-metric-name"
+    sampled_requests_enabled   = false
+  }
 }
+
+ 
+

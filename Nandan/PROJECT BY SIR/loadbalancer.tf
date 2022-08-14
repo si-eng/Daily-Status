@@ -1,4 +1,4 @@
-resource "aws_lb" "SEASIALB" {
+resource "aws_lb" "seasialb" {
   name               = "seasiaLB"
   internal           = false
   load_balancer_type = "application"
