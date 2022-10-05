@@ -72,7 +72,7 @@ resource "aws_codepipeline" "dr_pipeline" {
         Owner      = "arjit547"
         Repo       = "dockerdjango"
         Branch     = "main"
-        OAuthToken = "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"
+        OAuthToken = "********************"
       }
     }
   }
