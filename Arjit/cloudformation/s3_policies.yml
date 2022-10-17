@@ -1,0 +1,19 @@
+Resources: 
+  
+  ManagedPolicy:
+    Type: "AWS::IAM::ManagedPolicy"
+    Properties: 
+      ManagedPolicyName: s3forwrite
+      Description: writeandpermissions3bucket
+      Path: "/"
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement: 
+           
+          - Effect: "Allow"
+            Action: 
+              - "s3:Read"
+              - "S3:Write"
+              
+              
+            Resource: "*"

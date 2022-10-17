@@ -1,0 +1,8 @@
+Resources:
+  myGroup:
+    Type: 'AWS::IAM::Group'
+    Properties:
+      GroupName: ApiDevelopers 
+      Path: '/'
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AdministratorAccess
