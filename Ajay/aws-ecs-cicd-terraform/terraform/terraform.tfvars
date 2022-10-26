@@ -1,0 +1,8 @@
+aws_region="us-east-1"
+stack="ajay-test-1"
+fargate-task-service-role="ajay-fargate"
+aws_ecr="jay-project-image"
+aws_profile="default"
+source_repo_name="petclinic"
+source_repo_branch="master"
+image_repo_name="petclinic"
