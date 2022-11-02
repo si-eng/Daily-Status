@@ -30,7 +30,7 @@ resource "aws_codepipeline" "django_pipeline" {
         Owner      = "arjit547"
         Repo       = "Django"  
         Branch     = "main"
-        OAuthToken = "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"
+        OAuthToken = "**************"
       }
     }
   }
