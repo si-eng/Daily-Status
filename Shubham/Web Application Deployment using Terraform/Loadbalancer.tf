@@ -39,6 +39,12 @@ resource "aws_lb_target_group" "TG" {
 
 resource "aws_lb_target_group_attachment" "apache" {
   target_group_arn = aws_lb_target_group.TG.arn
-  target_id        = aws_instance.host.id
+  target_id        = aws_instance.myec11.id
+  port             = 80
+}
+
+resource "aws_lb_target_group_attachment" "nginx" {
+  target_group_arn = aws_lb_target_group.TG.arn
+  target_id        = aws_instance.myec22.id
   port             = 80
 }
