@@ -45,13 +45,6 @@ resource "aws_security_group" "allow" {
     cidr_blocks      = ["0.0.0.0/0"]
     
   }
-  ingress {
-    from_port        = 5050
-    to_port          = 5050
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-
-  }
 
   ingress {
     from_port        = 22
