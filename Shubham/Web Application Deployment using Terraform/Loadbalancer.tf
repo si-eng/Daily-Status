@@ -1,4 +1,4 @@
-resource "aws_lb" "test" {
+resource "aws_lb" "MYlb" {
   name               = "Mylb"
   internal           = false
   load_balancer_type = "application"
@@ -8,7 +8,7 @@ resource "aws_lb" "test" {
   enable_deletion_protection = false
 
   tags = {
-    Name = "Mylb"
+    Name = "MYlb"
   }
 }
 
