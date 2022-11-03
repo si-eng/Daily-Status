@@ -20,4 +20,4 @@ resource "aws_s3_bucket_website_configuration" "staging" {
   error_document {
     key = "/index.html"
   }
-}3
+}
