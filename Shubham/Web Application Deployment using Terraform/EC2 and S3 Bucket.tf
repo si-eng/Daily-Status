@@ -1,8 +1,8 @@
-resource "aws_s3_bucket" "bucket" {
+resource "aws_s3_bucket" "shubham" {
   acl    = "public-read"
-  bucket = "jhgffdcvbyhn876ghjbh"  
+  bucket = "s3bucket"  
   tags = {
-    Name        = "My s3 bucket"
+    Name        = "s3 bucket"
   }  
 }
 resource "aws_s3_bucket_acl" "b_acl" {
@@ -20,4 +20,4 @@ resource "aws_s3_bucket_website_configuration" "staging" {
   error_document {
     key = "/index.html"
   }
-}
+}3
