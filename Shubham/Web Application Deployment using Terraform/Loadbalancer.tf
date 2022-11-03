@@ -12,8 +12,8 @@ resource "aws_lb" "MYlb" {
   }
 }
 
-resource "aws_lb_listener" "LG" {
-  load_balancer_arn = aws_lb.test.arn
+resource "aws_lb_listener" "LB" {
+  load_balancer_arn = aws_lb.MYlb.arn
   port              = "80"
   
   default_action {

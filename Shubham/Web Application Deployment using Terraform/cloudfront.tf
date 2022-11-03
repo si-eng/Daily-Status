@@ -1,8 +1,7 @@
 resource "aws_cloudfront_distribution" "s3_distribution" {
-  web_acl_id = aws_wafv2_web_acl.WAF.arn
   
   origin {
-    domain_name = aws_s3_bucket.bucket.website_endpoint
+    domain_name = aws_s3_bucket.shubham.website_endpoint
     origin_id   = "s3"
 
     custom_origin_config {
@@ -14,7 +13,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 
   origin {
-    domain_name = aws_lb.test.dns_name
+    domain_name = aws_lb.MYlb.dns_name
     origin_id   = "Loadbalancer"
 
 	custom_origin_config {

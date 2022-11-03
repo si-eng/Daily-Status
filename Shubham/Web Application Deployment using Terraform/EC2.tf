@@ -1,14 +1,9 @@
-provider "aws"{
-    region = "us-east-1"
-}
-
-
 resource "aws_instance" "myec11" {
-  ami           = "ami-0149bda6ceec4bb0"
+  ami           = "ami-0149b2da6ceec4bb0"
   instance_type = "t2.micro"
-  subnet_id = aws_subnet.publicsubnet.id
+  subnet_id = aws_subnet.mysubnet1.id
   associate_public_ip_address = true
-  security_groups = [aws_security_group.securitygroup.id]
+  security_groups = [aws_security_group.allow.id]
 
   tags = {
     Name = "server1"
@@ -24,10 +19,9 @@ resource "aws_instance" "myec11" {
 resource "aws_instance" "myec22" {
   ami           = "ami-0149b2da6ceec4bb0"
   instance_type = "t2.micro"
-  key_name = "terraformoct"
-  subnet_id = aws_subnet.publicsubnet.id
+  subnet_id = aws_subnet.mysubnet1.id
   associate_public_ip_address = true
-  security_groups = [aws_security_group.securitygroup.id]
+  security_groups = [aws_security_group.allow.id]
 
   tags = {
     Name = "server0"

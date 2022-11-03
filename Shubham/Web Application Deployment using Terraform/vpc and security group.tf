@@ -4,7 +4,6 @@ resource "aws_vpc" "shubvpc" {
   enable_dns_support = true
   enable_classiclink_dns_support = true
 
-  enable_classiclink = true
   tags ={
     Name = "teraform"
   }
