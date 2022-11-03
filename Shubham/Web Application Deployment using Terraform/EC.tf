@@ -3,7 +3,7 @@ provider "aws"{
 }
 
 
-resource "aws_instance" "myec2" {
+resource "aws_instance" "myec11" {
   ami           = "ami-0149bda6ceec4bb0"
   instance_type = "t2.micro"
   subnet_id = aws_subnet.publicsubnet.id
@@ -21,7 +21,7 @@ resource "aws_instance" "myec2" {
   EOF 
 }
 
-resource "aws_instance" "myec2" {
+resource "aws_instance" "myec22" {
   ami           = "ami-0149b2da6ceec4bb0"
   instance_type = "t2.micro"
   key_name = "terraformoct"
