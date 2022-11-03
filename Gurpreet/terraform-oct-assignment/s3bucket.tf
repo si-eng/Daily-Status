@@ -1,26 +1,13 @@
+resource "aws_s3_bucket" "s3test" {
+  bucket = "test-tf-test-bucket"
 
-
-
-resource "aws_s3_bucket" "buck3" {
-  bucket = testingbucket2098 
-  
-  
   tags = {
-    Name        = "Myterraformbucket"
-  }  
-}
-  
-
-
-
-resource "aws_s3_bucket_versioning" "versioning_demo" {
-  bucket = aws_s3_bucket.buck3.bucket
-  versioning_configuration {
-    status = "Enabled"
+    Name        = "My bucket"
+    Environment = "Dev"
   }
 }
 
 resource "aws_s3_bucket_acl" "example" {
-  bucket = aws_s3_bucket.buck3.id
+  bucket = aws_s3_bucket.s3test.id
   acl    = "public-read-write"
 }

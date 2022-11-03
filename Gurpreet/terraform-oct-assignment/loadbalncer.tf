@@ -1,4 +1,4 @@
-resource "aws_lb" "testloadbalcer" {
+resource "aws_lb" "abclb" {
   name               = "test-lb"
   internal           = false
   load_balancer_type = "application"
@@ -7,7 +7,7 @@ resource "aws_lb" "testloadbalcer" {
 
 
   access_logs {
-    bucket  = aws_s3_bucket.buckets3.bucket
+    bucket  = aws_s3_bucket.s3test.bucket
     prefix  = "test-lb"
     enabled = true
   }
@@ -42,7 +42,7 @@ resource "aws_lb_target_group_attachment" "testtg2" {
 # creating listner group 
 
 resource "aws_lb_listener" "testlistener" {
-  load_balancer_arn = aws_lb.testloadbalcer.arn
+  load_balancer_arn = aws_lb.abclb.arn
   port              = "80"
   protocol          = "HTTP"
 

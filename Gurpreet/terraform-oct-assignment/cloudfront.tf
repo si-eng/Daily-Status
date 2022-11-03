@@ -1,6 +1,6 @@
 resource "aws_cloudfront_distribution" "distribution" {
   origin {
-    domain_name              = aws_lb.testloadbalcer.dns_name
+    domain_name              = aws_lb.abclb.dns_name
     
     origin_id                = "lb"
     custom_origin_config {

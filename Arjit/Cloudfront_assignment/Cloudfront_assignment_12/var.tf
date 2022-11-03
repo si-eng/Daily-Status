@@ -20,7 +20,7 @@ variable "github_repo" {
 
 variable "github_token" {
   description = "This is github authentication token"
-  default = "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"
+  default = "*************"
   type = string
 }
 
