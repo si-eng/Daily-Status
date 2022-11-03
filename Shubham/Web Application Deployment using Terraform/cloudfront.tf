@@ -1,5 +1,4 @@
 resource "aws_cloudfront_distribution" "s3_distribution" {
-  #web_acl_id = aws_wafv2_web_acl.WAF.arn
   
   origin {
     domain_name = aws_s3_bucket.shubham.website_endpoint
