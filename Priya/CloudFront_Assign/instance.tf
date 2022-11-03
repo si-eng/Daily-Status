@@ -18,8 +18,3 @@ resource "aws_instance" "service-instance" {
   tags = {
     Name = "service-instance"
   }
-
-  volume_tags = {
-    Name = "service-instance"
-  } 
-}
