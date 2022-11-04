@@ -1,3 +1,5 @@
+#########aws_vpc#########
+
 resource "aws_vpc" "shubvpc" {
   cidr_block = "10.0.0.0/16"
   enable_dns_hostnames = true
@@ -32,6 +34,8 @@ resource "aws_internet_gateway" "gw" {
     "Name" = "mygateway"
   }
 }
+
+#######aws_security_group#########
 
 resource "aws_security_group" "allow" {
   name        = "allow"
