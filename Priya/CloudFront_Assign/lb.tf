@@ -30,3 +30,9 @@ resource "aws_lb_target_group_attachment" "tg-1" {
     target_id = aws_instance.service-instance.id
     port = 80
 }
+
+resource "aws_lb_target_group_attachment" "tg-2" {
+    target_group_arn = aws_lb_target_group.service-tg.arn
+    target_id = aws_instance.service-instance2.id
+    port = 80
+}
