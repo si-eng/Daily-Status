@@ -1,51 +1,3 @@
-# ###############
-# #################
-# resource "aws_iam_role_policy" "codepipeline_policy11" {
-#   name = "nodepolicytest11"
-#   role = aws_iam_role.codepipeline_role.id
-
-#   policy = <<EOF
-# {
-#   "Version": "2012-10-17",
-#   "Statement": [
-#     {
-#       "Effect":"Allow",
-#       "Action": [
-#         "*"
-#       ],
-#       "Resource": [
-#         "*" 
-#       ]
-#     },
-#     {
-#       "Effect": "Allow",
-#       "Action": [
-#         "*"
-#       ],
-#       "Resource": "*"
-#     }
-#   ]
-# }
-# EOF
-# }
-# resource "aws_iam_role" "codepipeline_role" {
-#   name = "noderoletest1111"
-
-#   assume_role_policy = <<EOF
-# {
-#   "Version": "2012-10-17",
-#   "Statement": [
-#     {
-#       "Effect": "Allow",
-#       "Principal": {
-#         "Service": "codepipeline.amazonaws.com"
-#       },
-#       "Action": "sts:AssumeRole"
-#     }
-#   ]
-# }
-# EOF
-# }
 
 
 #################################################################################################################
@@ -369,7 +321,7 @@ resource "aws_ecs_service" "svc" {
 }
 
 ##############################################################################################
-
+### CodePipeline
 # #####################################################################################################################################################
 
 
@@ -398,7 +350,9 @@ variable "github_token" {
   type = string
 }
 
-###############
+#########################################################################################################
+####  Artifact
+###########################################################################################################
 variable "artifacts_bucket_name" {
   description = "S3 Bucket for storing artifacts"
   default     = "artifacts-bucket-devops-rectnative1"
@@ -414,7 +368,7 @@ resource "aws_s3_bucket" "artifacts_bucket_name" {
 }
 ##########################################################################################
 # code build:-
-
+###########################################################################################
 data "template_file" "buildspec" {
   template = "buildspec.yml"
   
@@ -512,9 +466,9 @@ resource "aws_iam_role_policy" "codebuild_policy" {
 EOF
 }
 
-
-# # pipeline :-
-
+######################################################################################################################
+## pipeline :-
+#######################################################################################################################
 resource "aws_codepipeline" "node_pipeline11" {
   name     = "node_pipeline11"
   role_arn = aws_iam_role.codepipeline_role.arn
@@ -651,30 +605,18 @@ data "aws_iam_role" "ecs-task" {
   name = "ecs-task-execution"
 }
 
-# output "repo_url" {
-#   value = aws_codecommit_repository.repo31.clone_url_http
-# }
 
 output "alb_dns" {
   value = aws_lb.app-lb.dns_name
 }
 
 
-# variable "repo_name" {
-#   type    = string
-#   default = "dev-repo21"
-# }
+
 
 variable "branch_name" {
   type    = string
   default = "master"
 }
-
-# variable "build_project" {
-#   type    = string
-#   default = "dev-build-repo21"
-# }
-
 
 
 
