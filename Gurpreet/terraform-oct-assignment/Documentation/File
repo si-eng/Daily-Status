@@ -1,0 +1,10 @@
+	Deploying web application on AWS Cloudfront
+ 
+In this documentation, we will be creating a web application on AWS cloud front that has been using CI/CD pipeline.
+We have using such services Amazon cloud front, S3 bucket for static website hosting and we will be using a Terraform to creating an Infrastructure.
+AWS resources, security groups using web, instance.
+Internet gateway, VPC creation, subnets, In this only  traditional network that operate in your own data center.
+Autos calling services role has attached policy to managing EC2 instance, load balancer.
+Load balancer have some target groups where we have to attached EC2 instance.
+Elastic load balancer to handle HTTP requests to web server, load balancer comes into the process.
+We were using Code deploy to ensure that code has been deployed on server and codepipleine build with code build and deploy.
