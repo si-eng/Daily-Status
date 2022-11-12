@@ -1,0 +1,8 @@
+aws_region="us-east-1"
+stack="ritesh-test-1"
+fargate-task-service-role="ritesh-fargate"
+aws_ecr="ritesh-project-image"
+aws_profile="default"
+source_repo_name="ritesh"
+source_repo_branch="master"
+image_repo_name="petclinic"
