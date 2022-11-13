@@ -1,4 +1,3 @@
-
 # Creating VPC 
 resource "aws_vpc" "testvpc" {
     cidr_block = "10.0.0.0/16"
@@ -12,7 +11,7 @@ resource "aws_vpc" "testvpc" {
 #creating subnets to my VPC
 resource "aws_subnet" "testsubnet-1" {
     vpc_id = aws_vpc.testvpc.id
-    availability_zone = "us-east-2a"
+    availability_zone = "us-east-1a"
     cidr_block = "10.0.0.0/24"
     tags = {
       "Name" = "testsubnet-1"
@@ -23,7 +22,7 @@ resource "aws_subnet" "testsubnet-1" {
 
 resource "aws_subnet" "testsubnet-2" {
     vpc_id = aws_vpc.testvpc.id
-    availability_zone = "us-east-2b"
+    availability_zone = "us-east-1b"
     cidr_block = "10.0.1.0/24"
     tags = {
       "Name" = "testsubnet-2"

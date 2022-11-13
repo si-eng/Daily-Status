@@ -1,7 +1,6 @@
 resource "aws_iam_role" "build-role" {
-    name = "build-role"
-
-    assume_role_policy = jsonencode({
+  name = "build-role"
+  assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
       {
@@ -13,19 +12,16 @@ resource "aws_iam_role" "build-role" {
       },
     ]
   })
-  
 }
 
-
-#creating IAM policy
-
 resource "aws_iam_role_policy" "codebuild-policy" {
-    role = aws_iam_role.build-role.name
-    policy = jsonencode({
+  role = "${aws_iam_role.build-role.name}"
+
+  policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
       {
-        Action = ["codecommit:GitPull"]
+        Action   = ["codecommit:GitPull"]
         Effect   = "Allow"
         Resource = "*"
       },
@@ -59,10 +55,38 @@ resource "aws_iam_role_policy" "codebuild-policy" {
         "s3:GetBucketLocation"]
         Effect   = "Allow"
         Resource = "*"
-      }
+      },
+      {
+            "Effect": "Allow",
+            "Action": [
+                "ecr:*",
+                "cloudtrail:LookupEvents"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateServiceLinkedRole"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:AWSServiceName": [
+                        "replication.ecr.amazonaws.com"
+                    ]
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecr-public:*",
+                "sts:GetServiceBearerToken"
+            ],
+            "Resource": "*"
+        }
     ]
-
-
-  })
-  
+  }
+)
 }
