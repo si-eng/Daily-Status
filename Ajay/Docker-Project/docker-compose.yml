@@ -1,0 +1,42 @@
+services:
+  frontend:
+    image: "jtestkc/frontend"
+    ports:
+      - "5000:5000"
+    networks:
+      - jaynet
+
+  backend:
+    image: "jtestkc/backend"
+    depends_on:
+      - db
+      - redis
+    networks:
+      - jaynet
+
+  dashboard:
+    image: "jtestkc/dashboard"
+    depends_on:
+      - db
+      - backend
+    ports:
+      - "3000:3000"
+    networks:
+      - jaynet
+
+  redis:
+    image: redis
+    networks:
+      - jaynet
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    depends_on:
+      - redis
+    networks:
+      - jaynet
+networks:
+  jaynet:
