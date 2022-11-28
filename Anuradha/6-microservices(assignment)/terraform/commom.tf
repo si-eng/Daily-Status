@@ -7,24 +7,24 @@ resource "aws_lb" "app-lb" {
 
 }
 
-#-------------------------#TARGETGROUP - 1 ---------------------
+
 
 resource "aws_lb_target_group" "tg-group" {     
   name        = "tg-group"
   port        = "80"
-  protocol    = "HTTP"                                                #this target_group attach with first SERVICE-1
+  protocol    = "HTTP"                                                
   vpc_id      = "${aws_vpc.createVPC.id}"
   target_type = "ip"
 
 }
 
-#-------------------------#LISTENER-------------------------------#
+
 
 resource "aws_lb_listener" "lb-listener" {
   load_balancer_arn = aws_lb.app-lb.arn
   port              = "80"
   protocol          = "HTTP"
-                                                                   #listener should be one 
+                                                                 
   default_action {
     type = "forward"
     forward {
@@ -53,7 +53,7 @@ resource "aws_lb_target_group" "tg1-group" {
   
 
 }
-                                                                                   #THIS target_group AND aws_lb_listener_rule attach with SERVICE-2
+                                                                                  
 
 
 resource "aws_lb_listener_rule" "static" {
