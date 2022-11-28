@@ -118,7 +118,7 @@ resource "aws_codepipeline" "my_pipeline" {
         Owner      = "Siarajput421"
         Repo       = "Dockerpipe1"
         Branch     = "main"
-        OAuthToken = "******"
+        OAuthToken = "*******"
       }
     }
   }
