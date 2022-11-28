@@ -1,0 +1,86 @@
+
+#############################################################################################################################
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - echo $AWS_DEFAULT_REGION
+      - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 033746436249.dkr.ecr.us-east-2.amazonaws.com
+      - REPOSITORY_NAME="ecr"      
+      - REPOSITORY_URI=033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile1:latest
+          
+      
+  build:
+    commands:
+      - echo Building the Docker image...
+      - docker build -t dockerfile1:latest -f ./file1/Dockerfile .
+      - docker tag dockerfile1:latest 033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile1:latest
+
+      - docker build -t dockerfile2:latest -f ./file2/Dockerfile .
+      - docker tag  dockerfile2:latest 033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile2:latest   ###### change
+
+      - docker build -t dockerfile3:latest -f ./file3/Dockerfile .
+      - docker tag dockerfile3:latest 033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile3:latest   ###### change
+
+      - docker build -t dockerfile4:latest -f ./file4/Dockerfile .
+      - docker tag dockerfile4:latest 033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile4:latest   ###### change
+
+      - docker build -t dockerfile5:latest -f ./file5/Dockerfile .
+      - docker tag dockerfile5:latest 033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile5:latest   ###### change
+
+      - docker build -t dockerfile6:latest -f ./file6/Dockerfile .
+      - docker tag dockerfile6:latest 033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile6:latest   ###### change
+      
+      #- docker tag $REPOSITORY_NAME:latest $REPOSITORY_URI:$IMAGE_TAG
+
+  post_build:
+    commands:
+      -  echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push 033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile1:latest
+
+      - docker push 033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile2:latest  ##### change
+      
+      - docker push 033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile3:latest  ##### change
+     
+      - docker push 033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile4:latest  ##### change
+     
+      - docker push 033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile5:latest  ##### change
+     
+      - docker push 033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile6:latest  ##### change
+     
+      
+      #- docker push $REPOSITORY_URI:$IMAGE_TAG
+
+      - echo Writing image definitions file...
+     
+      - echo Writing image definitions file...
+      - printf '[{"name":"html1_container","imageUri":"033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile1:latest"}]'  > imagedefinitions1.json
+      - printf '[{"name":"html2_container","imageUri":"033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile2:latest"}]'  > imagedefinitions2.json
+      
+      - printf '[{"name":"html3_container","imageUri":"033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile3:latest"}]'  > imagedefinitions3.json
+
+      - printf '[{"name":"html4_container","imageUri":"033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile4:latest"}]'  > imagedefinitions4.json
+
+      - printf '[{"name":"html5_container","imageUri":"033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile5:latest"}]'  > imagedefinitions5.json
+
+      - printf '[{"name":"html6_container","imageUri":"033746436249.dkr.ecr.us-east-2.amazonaws.com/dockerfile6:latest"}]'  > imagedefinitions6.json
+
+
+artifacts:
+  files: 
+   
+    - imagedefinitions1.json
+
+    - imagedefinitions2.json
+    
+    - imagedefinitions3.json
+
+    - imagedefinitions4.json
+
+    - imagedefinitions5.json
+
+    - imagedefinitions6.json
+    
