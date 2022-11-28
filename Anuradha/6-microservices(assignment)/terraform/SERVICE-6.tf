@@ -115,7 +115,7 @@ resource "aws_codepipeline" "my_pipeline5" {
         Owner      = "Siarajput421"
         Repo       = "Dockerpipe1"
         Branch     = "main"
-        OAuthToken = "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"
+        OAuthToken = "****"
       }
     }
   }
