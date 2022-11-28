@@ -212,10 +212,10 @@ resource "aws_appautoscaling_policy" "scale_down_policy1" {
 resource "aws_cloudwatch_metric_alarm" "cpu_high1" {
   alarm_name          = "cpu-high1"
   comparison_operator = "GreaterThanOrEqualToThreshold"
-  evaluation_periods  = 3                              #"The number of periods over which data is compared to the specified threshold for max cpu metric alarm"
+  evaluation_periods  = 3                            
   metric_name         = "CPUUtilization1"
   namespace           = "AWS/ECS"
-  period              = 60                             #"The number of periods over which data is compared to the specified threshold for min cpu metric alarm"
+  period              = 60                             
   statistic           = "Maximum"
   threshold           = 80
   
