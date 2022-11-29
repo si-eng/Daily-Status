@@ -162,12 +162,22 @@ resource "aws_codepipeline" "assignment_pipeline4" {
   }
 }
 
-#### Autooooo###############
-resource "aws_appautoscaling_policy" "scale_up_policy" {
-  name               = "scale_up_policy"
-  depends_on         = [aws_appautoscaling_target.ecs_target]
+##############################################################################################################################################
+########################################################################################################################################
+resource "aws_appautoscaling_target" "ecs_target4" {
+  max_capacity       = 4
+  min_capacity       = 1
+  resource_id        = "service/Cluster-prod/html_service4"
+  scalable_dimension = "ecs:service:DesiredCount"
   service_namespace  = "ecs"
-  resource_id        = "ecr/ecs-cluster/html_service1"
+}
+
+
+resource "aws_appautoscaling_policy" "scale_up_policy4" {
+  name               = "scale_up_policy4"
+  depends_on         = [aws_appautoscaling_target.ecs_target4]
+  service_namespace  = "ecs"
+  resource_id        = "service/Cluster-prod/html_service4"
   scalable_dimension = "ecs:service:DesiredCount"
   step_scaling_policy_configuration {
     adjustment_type         = "ChangeInCapacity"
@@ -180,11 +190,12 @@ resource "aws_appautoscaling_policy" "scale_up_policy" {
   }
 }
 
-resource "aws_appautoscaling_policy" "scale_down_policy" {
-  name               = "scale_down_policy"
-  depends_on         = [aws_appautoscaling_target.ecs_target]
+
+resource "aws_appautoscaling_policy" "scale_down_policy4" {
+  name               = "scale_down_policy4"
+  depends_on         = [aws_appautoscaling_target.ecs_target4]
   service_namespace  = "ecs"
-  resource_id        = "ecr4/ecs-cluster/html_service4"
+   resource_id        = "service/Cluster-prod/html_service4"
   scalable_dimension = "ecs:service:DesiredCount"
   step_scaling_policy_configuration {
     adjustment_type         = "ChangeInCapacity"
@@ -196,25 +207,28 @@ resource "aws_appautoscaling_policy" "scale_down_policy" {
     }
   }
 }
+
+
+
 ################  watchhhhhhh#########
-resource "aws_cloudwatch_metric_alarm" "up" {
-  alarm_name          = "up"
+resource "aws_cloudwatch_metric_alarm" "up4" {
+  alarm_name          = "up4"
   comparison_operator = "GreaterThanOrEqualToThreshold"
-  evaluation_periods  = 3                              #"The number of periods over which data is compared to the specified threshold for max cpu metric alarm"
+  evaluation_periods  = 3                              
   metric_name         = "CPUUtilization"
   namespace           = "AWS/ECS"
-  period              = 60                             #"The number of periods over which data is compared to the specified threshold for min cpu metric alarm"
+  period              = 60                             
   statistic           = "Maximum"
   threshold           = 80
   
-  alarm_actions = [aws_appautoscaling_policy.scale_up_policy.arn]
+  alarm_actions = [aws_appautoscaling_policy.scale_up_policy4.arn]
 
   
 }
 
 
-resource "aws_cloudwatch_metric_alarm" "down" {
-  alarm_name          = "down"
+resource "aws_cloudwatch_metric_alarm" "down4" {
+  alarm_name          = "down4"
   comparison_operator = "LessThanOrEqualToThreshold"
   evaluation_periods  = 3
   metric_name         = "CPUUtilization"
@@ -223,7 +237,7 @@ resource "aws_cloudwatch_metric_alarm" "down" {
   statistic           = "Average"
   threshold           = 10
   
-  alarm_actions = [aws_appautoscaling_policy.scale_down_policy.arn]
+  alarm_actions = [aws_appautoscaling_policy.scale_down_policy4.arn]
 
   
 }
