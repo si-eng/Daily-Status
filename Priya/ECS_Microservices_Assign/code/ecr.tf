@@ -157,7 +157,9 @@ resource "aws_codepipeline" "assignment_pipeline" {
     }
   }
 }
-resource "aws_appautoscaling_target" "ecs_target" {
+##############################################################################################################################################
+########################################################################################################################################
+resource "aws_appautoscaling_target" "ecs_target1" {
   max_capacity       = 4
   min_capacity       = 1
   resource_id        = "service/Cluster-prod/html_service1"
@@ -166,9 +168,9 @@ resource "aws_appautoscaling_target" "ecs_target" {
 }
 
 
-resource "aws_appautoscaling_policy" "scale_up_policy" {
-  name               = "scale_up_policy"
-  depends_on         = [aws_appautoscaling_target.ecs_target]
+resource "aws_appautoscaling_policy" "scale_up_policy1" {
+  name               = "scale_up_policy1"
+  depends_on         = [aws_appautoscaling_target.ecs_target1]
   service_namespace  = "ecs"
   resource_id        = "service/Cluster-prod/html_service1"
   scalable_dimension = "ecs:service:DesiredCount"
@@ -184,12 +186,9 @@ resource "aws_appautoscaling_policy" "scale_up_policy" {
 }
 
 
-
-
-
-resource "aws_appautoscaling_policy" "scale_down_policy" {
-  name               = "scale_down_policy"
-  depends_on         = [aws_appautoscaling_target.ecs_target]
+resource "aws_appautoscaling_policy" "scale_down_policy1" {
+  name               = "scale_down_policy1"
+  depends_on         = [aws_appautoscaling_target.ecs_target1]
   service_namespace  = "ecs"
    resource_id        = "service/Cluster-prod/html_service1"
   scalable_dimension = "ecs:service:DesiredCount"
@@ -207,8 +206,8 @@ resource "aws_appautoscaling_policy" "scale_down_policy" {
 
 
 ################  watchhhhhhh#########
-resource "aws_cloudwatch_metric_alarm" "up" {
-  alarm_name          = "up"
+resource "aws_cloudwatch_metric_alarm" "up1" {
+  alarm_name          = "up1"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = 3                              
   metric_name         = "CPUUtilization"
@@ -217,14 +216,14 @@ resource "aws_cloudwatch_metric_alarm" "up" {
   statistic           = "Maximum"
   threshold           = 80
   
-  alarm_actions = [aws_appautoscaling_policy.scale_up_policy.arn]
+  alarm_actions = [aws_appautoscaling_policy.scale_up_policy1.arn]
 
   
 }
 
 
-resource "aws_cloudwatch_metric_alarm" "down" {
-  alarm_name          = "down"
+resource "aws_cloudwatch_metric_alarm" "down1" {
+  alarm_name          = "down1"
   comparison_operator = "LessThanOrEqualToThreshold"
   evaluation_periods  = 3
   metric_name         = "CPUUtilization"
@@ -233,10 +232,11 @@ resource "aws_cloudwatch_metric_alarm" "down" {
   statistic           = "Average"
   threshold           = 10
   
-  alarm_actions = [aws_appautoscaling_policy.scale_down_policy.arn]
+  alarm_actions = [aws_appautoscaling_policy.scale_down_policy1.arn]
 
   
 }
+
 
 
 
