@@ -8,7 +8,7 @@ resource "aws_ecs_task_definition" "task" {
   memory                   = 512
   execution_role_arn       = "${data.aws_iam_role.ecs-task-execution.arn}"
 
-  container_definitions = jsonencode([
+  container_definitions = jsonencode(
     {
       name   = "service1"
       image  = "${aws_ecrpublic_repository.ecr1.repository_uri}" 
@@ -119,7 +119,7 @@ resource "aws_codepipeline" "pipeline6" {
         Owner      = "ShubhamChouhan9001"
         Repo       = "Docker-6-services"
         Branch     = "main"
-        OAuthToken = "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"
+        OAuthToken = "<>"
       }
     }
   }
@@ -367,7 +367,7 @@ resource "aws_codepipeline" "pipeline1" {
         Owner      = "ShubhamChouhan9001"
         Repo       = "Docker-6-services"
         Branch     = "main"
-        OAuthToken = "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"
+        OAuthToken = "<>"
       }
     }
   }
@@ -611,7 +611,7 @@ resource "aws_codepipeline" "pipeline2" {
         Owner      = "ShubhamChouhan9001"
         Repo       = "Docker-6-services"
         Branch     = "main"
-        OAuthToken = "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"
+        OAuthToken = "<>"
       }
     }
   }
@@ -852,7 +852,7 @@ resource "aws_codepipeline" "pipeline33" {
         Owner      = "ShubhamChouhan9001"
         Repo       = "Docker-6-services"
         Branch     = "main"
-        OAuthToken = "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"
+        OAuthToken = "<>"
       }
     }
   }
@@ -1094,7 +1094,7 @@ resource "aws_codepipeline" "pipeline3" {
         Owner      = "ShubhamChouhan9001"
         Repo       = "Docker-6-services"
         Branch     = "main"
-        OAuthToken = "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"
+        OAuthToken = "<>"
       }
     }
   }
@@ -1336,7 +1336,7 @@ resource "aws_codepipeline" "pipeline4" {
         Owner      = "ShubhamChouhan9001"
         Repo       = "Docker-6-services"
         Branch     = "main"
-        OAuthToken = "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"
+        OAuthToken = "<>"
       }
     }
   }
@@ -1577,7 +1577,7 @@ resource "aws_codepipeline" "pipeline5" {
         Owner      = "ShubhamChouhan9001"
         Repo       = "Docker-6-services"
         Branch     = "main"
-        OAuthToken = "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"
+        OAuthToken = "<>"
       }
     }
   }
