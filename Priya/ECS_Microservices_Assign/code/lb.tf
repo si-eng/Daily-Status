@@ -58,7 +58,7 @@ resource "aws_lb_listener_rule" "static" {
 
  condition {
     path_pattern {
-      values = ["/index2.html"]
+      values = ["/index.html"]
     }
   }
 
@@ -97,7 +97,7 @@ resource "aws_lb_listener_rule" "static2" {
 
  condition {
     path_pattern {
-      values = ["/index3.html"]
+      values = ["/index.html"]
     }
   }
 
@@ -136,7 +136,7 @@ resource "aws_lb_listener_rule" "static3" {
 
  condition {
     path_pattern {
-      values = ["/index4.html"]
+      values = ["/index.html"]
     }
   }
 
@@ -175,7 +175,7 @@ resource "aws_lb_listener_rule" "static4" {
 
  condition {
     path_pattern {
-      values = ["/index5.html"]
+      values = ["/index.html"]
     }
   }
 
@@ -211,7 +211,7 @@ resource "aws_lb_listener_rule" "static5" {
 
  condition {
     path_pattern {
-      values = ["/index6.html"]
+      values = ["/index.html"]
     }
   }
 
