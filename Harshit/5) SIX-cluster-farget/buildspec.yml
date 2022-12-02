@@ -1,0 +1,76 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - echo $AWS_DEFAULT_REGION
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/v4j2a7d2
+      - 
+      - REPOSITORY_NAME_1="ecr-repo-1" 
+      - REPOSITORY_NAME_2="ecr-repo-2"
+      - REPOSITORY_NAME_3="ecr-repo-3"
+      - REPOSITORY_NAME_4="ecr-repo-4"
+      - REPOSITORY_NAME_5="ecr-repo-5"
+      - REPOSITORY_NAME_6="ecr-repo-6"
+             
+
+      - REPOSITORY_URI_1=public.ecr.aws/v4j2a7d2/ecr-repo-1
+      - REPOSITORY_URI_2=public.ecr.aws/v4j2a7d2/ecr-repo-2
+      - REPOSITORY_URI_3=public.ecr.aws/v4j2a7d2/ecr-repo-3
+      - REPOSITORY_URI_4=public.ecr.aws/v4j2a7d2/ecr-repo-4
+      - REPOSITORY_URI_5=public.ecr.aws/v4j2a7d2/ecr-repo-5
+      - REPOSITORY_URI_6=public.ecr.aws/v4j2a7d2/ecr-repo-6
+      # - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      # - IMAGE_TAG=${COMMIT_HASH:=latest}
+  build:
+    commands:
+      - echo Building the Docker image...
+      - docker build -t $REPOSITORY_NAME_1:latest -f ./service-1/dockerfile .
+      - docker build -t $REPOSITORY_NAME_2:latest -f ./service-2/dockerfile . 
+      - docker build -t $REPOSITORY_NAME_3:latest -f ./service-3/dockerfile .
+      - docker build -t $REPOSITORY_NAME_4:latest -f ./service-4/dockerfile .
+      - docker build -t $REPOSITORY_NAME_5:latest -f ./service-5/dockerfile .
+      - docker build -t $REPOSITORY_NAME_6:latest -f ./service-6/dockerfile .
+      - docker tag $REPOSITORY_NAME_1:latest $REPOSITORY_URI_1:latest
+      - docker tag $REPOSITORY_NAME_2:latest $REPOSITORY_URI_2:latest
+      - docker tag $REPOSITORY_NAME_3:latest $REPOSITORY_URI_3:latest
+      - docker tag $REPOSITORY_NAME_4:latest $REPOSITORY_URI_4:latest
+      - docker tag $REPOSITORY_NAME_5:latest $REPOSITORY_URI_5:latest
+      - docker tag $REPOSITORY_NAME_5:latest $REPOSITORY_URI_6:latest 
+      - docker tag $REPOSITORY_NAME_1:latest $REPOSITORY_URI_1:$IMAGE_TAG-1
+      - docker tag $REPOSITORY_NAME_2:latest $REPOSITORY_URI_2:$IMAGE_TAG-2
+      - docker tag $REPOSITORY_NAME_3:latest $REPOSITORY_URI_3:$IMAGE_TAG-3
+      - docker tag $REPOSITORY_NAME_4:latest $REPOSITORY_URI_4:$IMAGE_TAG-4
+      - docker tag $REPOSITORY_NAME_5:latest $REPOSITORY_URI_5:$IMAGE_TAG-5
+      - docker tag $REPOSITORY_NAME_6:latest $REPOSITORY_URI_6:$IMAGE_TAG-6
+  post_build:
+    commands:
+      - docker push $REPOSITORY_URI_1:latest
+      - docker push $REPOSITORY_URI_2:latest
+      - docker push $REPOSITORY_URI_3:latest
+      - docker push $REPOSITORY_URI_4:latest
+      - docker push $REPOSITORY_URI_5:latest
+      - docker push $REPOSITORY_URI_6:latest
+      - docker push $REPOSITORY_URI_1:$IMAGE_TAG-1 
+      - docker push $REPOSITORY_URI_2:$IMAGE_TAG-2 
+      - docker push $REPOSITORY_URI_3:$IMAGE_TAG-3
+      - docker push $REPOSITORY_URI_4:$IMAGE_TAG-4 
+      - docker push $REPOSITORY_URI_5:$IMAGE_TAG-5
+      - docker push $REPOSITORY_URI_6:$IMAGE_TAG-6
+      - printf '[{"name":"container-1","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions-1.json
+      - printf '[{"name":"container-2","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions-2.json
+      - printf '[{"name":"container-3","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions-3.json
+      - printf '[{"name":"container-4","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions-4.json
+      - printf '[{"name":"container-5","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions-6.json
+      - printf '[{"name":"container-6","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions-7.json
+
+artifacts:
+  files: imagedefinitions-1.json
+  files: imagedefinitions-2.json
+  files: imagedefinitions-3.json
+  files: imagedefinitions-4.json
+  files: imagedefinitions-5.json
+  files: imagedefinitions-6.json
+
+  
