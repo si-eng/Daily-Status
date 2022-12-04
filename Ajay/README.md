@@ -1,6 +1,6 @@
 Ajay kc
 
-| ECS-PROJECT](https://github.com/Devops-seasia/Daily-Status/tree/main/Ajay/ECS-FARGATE-Project)  | Second Header |
+| [ECS-PROJECT](https://github.com/Devops-seasia/Daily-Status/tree/main/Ajay/ECS-FARGATE-Project)  | Second Header |
 | ------------- | ------------- |
 | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  |
