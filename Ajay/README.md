@@ -7,4 +7,8 @@ Ajay kc
 | [Youtube](https://youtu.be/i57WJg-3-M8) | [Youtube](https://youtu.be/vrlnlNR6owc) | [Youtube](https://youtu.be/dniS9HExYuc) | [Youtube]() |
  
 [CLOUD WATCH - YOUTUBE](https://youtu.be/jL6RkAXOhm4)
+
+[AWS Cognito - Explained and Created User Pool]()
+
+[Redirecting Ec2 SSH port]()
        
