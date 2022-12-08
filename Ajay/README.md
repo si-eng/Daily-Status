@@ -8,7 +8,7 @@ Ajay kc
  
 [CLOUD WATCH - YOUTUBE](https://youtu.be/jL6RkAXOhm4)
 
-[AWS Cognito - Explained and Created User Pool]()
+[AWS Cognito - Explained and Created User Pool](https://youtu.be/ixUplADBI1U)
 
 [Redirecting Ec2 SSH port]()
        
