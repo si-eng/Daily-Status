@@ -12,5 +12,5 @@ Ajay kc
 
 [Redirecting Ec2 SSH port]()
 
-[Aws Transit Gateway - Connecting VPC video](https://youtu.be/SmRZZTJojaw)  |  [Documentation]()
+| [Aws Transit Gateway - Connecting VPC video](https://youtu.be/SmRZZTJojaw)  |  [Documentation]() |
        
