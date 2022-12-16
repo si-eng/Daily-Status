@@ -10,7 +10,7 @@ Ajay kc
 
 [AWS Cognito - Explained and Created User Pool](https://youtu.be/ixUplADBI1U)
 
-[Redirecting Ec2 SSH port]()
+[ Change Ec2 SSH port- YouTube ](https://youtu.be/U250zLwewEA)
 
 | [Aws Transit Gateway- video](https://youtu.be/SmRZZTJojaw)  |  [Documentation](https://github.com/Devops-seasia/Daily-Status/blob/main/Ajay/DOCUMENTATION/Transit-Gateway-Documentation.lmhk) |
  | ------------- | ------------- |      
