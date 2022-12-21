@@ -1,0 +1,2 @@
+Aws Transit Gateway vs VPC Peering
+https://www.youtube.com/watch?v=ck2uuu68YJw&ab_channel=DevOps_Process
