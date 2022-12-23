@@ -1,0 +1,37 @@
+Apt update
+sudo curl -Lo /usr/local/bin/copilot https://github.com/aws/copilot-cli/releases/download/v1.21.0/copilot-linux-v1.21.0 \
+&& sudo chmod +x /usr/local/bin/copilot \
+&& copilot –help
+
+apt install awscli -y
+apt install docker.io -y
+apt update
+aws configure
+vi dockerfile
+	FROM ubuntu:18.04
+	RUN apt update -y
+	RUN apt install nginx -y
+	COPY index.html /var/www/html
+	RUN rm /var/www/html/index.nginx-debian.html
+	EXPOSE 80
+	CMD ["nginx", "-g","daemon off;"]
+
+Vi index.html
+docker -ps
+docker build .
+docker image ls
+copilot init
+git init
+git config --global --add safe.directory /home/ubuntu
+git add .
+git commit -m “msg”
+git remote add origin <repo link>
+git push -u origin main
+<git ueser name and passoord>
+copilot pipeline init
+git add .
+git commit -m “build spec”
+git push -u origin main
+<git ueser name and passoord>
+copilot pipeline deploy
+
