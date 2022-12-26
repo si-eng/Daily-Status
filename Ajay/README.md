@@ -14,7 +14,7 @@ Ajay kc
 
 | [Aws Transit Gateway- video](https://youtu.be/SmRZZTJojaw)  |  [Documentation](https://github.com/Devops-seasia/Daily-Status/blob/main/Ajay/DOCUMENTATION/Transit-Gateway-Documentation.lmhk) |
  | ------------- | ------------- |      
-| [VPC PEERING- video](https://youtu.be/SmRZZTJojaw)  |  [Documentation](https://github.com/Devops-seasia/Daily-Status/blob/main/Ajay/DOCUMENTATION/zoho-vpc-peering.odt) |
+| [VPC PEERING- video](https://youtu.be/I3Ys4psxPRs)  |  [Documentation](https://github.com/Devops-seasia/Daily-Status/blob/main/Ajay/DOCUMENTATION/zoho-vpc-peering.odt) |
  | ------------- | ------------- |   
  | [VPC PEERING VS AWS TRANSIT GATEWAY- video](https://youtu.be/SmRZZTJojaw)  |  [Documentation](https://github.com/Devops-seasia/Daily-Status/blob/main/Ajay/DOCUMENTATION/zoho-Aws-Transit-Gateway-vs-VPC-Peering.odt) |
  | ------------- | ------------- |      
