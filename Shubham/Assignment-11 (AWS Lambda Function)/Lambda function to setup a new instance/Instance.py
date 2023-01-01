@@ -1,6 +1,8 @@
 import os
 import boto3
 
+#Environment variables
+
 AMI = os.environ['AMI']
 INSTANCE_TYPE = os.environ['INSTSNCE_TYPE']
 KEY_NAME = os.environ['KEY_NAME']
@@ -9,14 +11,11 @@ REGION = os.environ['REGION']
 
 ec2 = boto3.client('ec2' , region_name=REGION)
 
+#Execution Command in Terminal
+
 def lambda_handler(event, context):
     init_script = """#!/bin/bash
-                yum update -y
-                yum install -y httpd24
-                service httpd start
-                chkconfig httpd on
-                echo > /var/www/html/index.html
-                shutdown -h +5"""
+                yum update -y"""
 
     instance = ec2.run_instances(
         ImageId=AMI,
