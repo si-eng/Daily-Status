@@ -1,7 +1,5 @@
 import boto3
 
-# http://boto3.readthedocs.io/en/latest/reference/services/ec2.html#service-resource
-
 ec2 = boto3.resource('ec2', region_name='us-east-2')
 
 # create VPC
@@ -44,9 +42,4 @@ print(sec_group.id)
 
 def lambda_handler(event, context):
     init_script = """#!/bin/bash
-                yum update -y
-                yum install -y httpd24
-                service httpd start
-                chkconfig httpd on
-                echo > /var/www/html/index.html
-                shutdown -h +5"""
+                yum update -y"""
