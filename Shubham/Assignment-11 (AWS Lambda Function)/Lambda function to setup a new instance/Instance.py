@@ -4,7 +4,7 @@ import boto3
 #Environment variables
 
 AMI = os.environ['AMI']
-INSTANCE_TYPE = os.environ['INSTSNCE_TYPE']
+INSTANCE_TYPE = os.environ['INSTANCE_TYPE']
 KEY_NAME = os.environ['KEY_NAME']
 SUBNET_ID = os.environ['SUBNET_ID']
 REGION = os.environ['REGION']
@@ -24,6 +24,5 @@ def lambda_handler(event, context):
         SubnetId=SUBNET_ID,
         MaxCount=1,
         MinCount=1,
-        InstanceInititiatedShutdownBehaviour='terminate',
         UserData=init_script
     )
