@@ -18,4 +18,6 @@ Ajay kc
  | ------------- | ------------- |   
  | [VPC PEERING VS AWS TRANSIT GATEWAY- video](https://youtu.be/SmRZZTJojaw)  |  [Documentation](https://github.com/Devops-seasia/Daily-Status/blob/main/Ajay/DOCUMENTATION/zoho-Aws-Transit-Gateway-vs-VPC-Peering.odt) |
  | ------------- | ------------- |      
+ | [Lambda VPC- video](https://youtu.be/CpPnJNjbkhk)  |  [EC2 - Lambda](https://youtu.be/93g2gLzT50c) | [EC2 start/stop - Lambda](https://youtu.be/yHvkpfT3RR8) | 
+
 
