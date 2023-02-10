@@ -20,4 +20,6 @@ Ajay kc
     
  | [Lambda VPC- video](https://youtu.be/CpPnJNjbkhk)  |  [EC2 - Lambda](https://youtu.be/93g2gLzT50c) | [EC2 start/stop - Lambda](https://youtu.be/yHvkpfT3RR8) | 
 
+[Kubernetes - First 10 Videos playlist](https://youtube.com/playlist?list=PLeD2O0_YGL4ZbOCx79NVhfXbYAFeaPtVc)
+
 
