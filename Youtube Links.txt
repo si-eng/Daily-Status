@@ -37,12 +37,6 @@ channel link: https://www.youtube.com/@LearnDevopsWithShubham
 Sakshi
 channel link: https://www.youtube.com/@arurewithsakshi
 
-Anshika kumari
-channel link: https://www.youtube.com/@anshikadevops
-
-Mohd wakas khan
-channel link: https://www.youtube.com/@mohdwakaskhan
-
 Shilpa joshi
 channel link: https://www.youtube.com/@shilpajoshi5273
 
@@ -54,6 +48,3 @@ channel link: https://www.youtube.com/@user-to7xq2wv7d
 
 Prince chauhan
 channel link: https://www.youtube.com/@princechauhan9321
-
-Anjali kashyap
-channel link: https://www.youtube.com/@letstalkaboutaws
