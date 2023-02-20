@@ -16,11 +16,6 @@ Parameters:
         Description: Enter Git repo name.
         Type: String
         Default: master
-    
-    # gittoken:
-    #     Description: Enter Git Outh Token name.
-    #     Type: String
-    #     Default: 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
 
     Env:
         Type: String
@@ -325,16 +320,3 @@ Resources:
                         ServiceName: !FindInMap [EnvMap, !Ref Env, servicename]
                         FileName: imagedefinitions.json
                     RunOrder: 1 
-
-        
-
-################# OUTPUTS ##############
-
-# Outputs:
-#     server1:
-#         Description: IPv4 of server1
-#         Value: !GetAtt server1.PublicIp
-
-#     LoadBalancer:
-#         Description: DNS of LoadBalancer
-#         Value: !GetAtt LoadBalancer.DNSName
