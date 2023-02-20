@@ -1,1 +1,340 @@
 
+##################### Variables for resources #################
+Parameters:
+
+    ownername:
+        Description: Enter Git repo owner name.
+        Type: String
+        Default: Vikrant1020
+    
+    reponame:
+        Description: Enter Git repo name.
+        Type: String
+        Default: node
+    
+    branch:
+        Description: Enter Git repo name.
+        Type: String
+        Default: master
+    
+    # gittoken:
+    #     Description: Enter Git Outh Token name.
+    #     Type: String
+    #     Default: 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
+
+    Env:
+        Type: String
+        AllowedValues:
+            - Dev
+            - Stage
+            - Prod
+
+################## Mapping according to ENV #############
+Mappings:
+    EnvMap:
+        Dev:
+            s3name: developingbucketigtesing
+            cbname: DEV_Build
+            ecsname: DEV_ECS
+            servicename: DEV_service
+            ecrname: dev_repo
+            pipelinename: dev_pipeline
+            codebuildrole: dev_codebuild_role
+            codepipelinerole: dev_codepipeline_role
+            taskexwcutionrole: dev_taskexwcution_role
+
+        Stage:
+            s3name: stagingbucketigtesing
+            cbname: STAGE_Build
+            ecsname: STAGE_ECS
+            servicename: STAGE_service
+            ecrname: stage_repo
+            pipelinename: stage_pipeline
+            codebuildrole: stage_codebuild_role
+            codepipelinerole: stage_codepipeline_role
+            taskexwcutionrole: stage_taskexwcution_role
+
+        Prod:
+            s3name: prodbucketigtesing
+            cbname: PROD_Build
+            ecsname: PROD_ECS
+            servicename: PROD_service
+            ecrname: prod_repo
+            pipelinename: prod_pipeline
+            codebuildrole: prod_codebuild_role
+            codepipelinerole: prod_codepipeline_role
+            taskexwcutionrole: prod_taskexwcution_role
+
+################ Resources to be created #####################
+
+Resources:
+
+######################## ECR repo ###################
+    MyRepository: 
+        Type: AWS::ECR::Repository
+        Properties: 
+            RepositoryName: !FindInMap [EnvMap, !Ref Env, ecrname]
+            ImageScanningConfiguration: 
+                ScanOnPush: true
+
+################### ECS cluster ##################
+    ECSCluster:
+        Type: 'AWS::ECS::Cluster'
+        Properties:
+            ClusterName: !FindInMap [EnvMap, !Ref Env, ecsname]
+            # CapacityProviders:
+            #     - FARGATE
+            #     - FARGATE_SPOT
+            # DefaultCapacityProviderStrategy:
+            #     - CapacityProvider: FARGATE
+            #       Weight: 1
+            #     - CapacityProvider: FARGATE_SPOT
+            #       Weight: 1
+############################ Task Excution Role ################# 
+    TaskExecutionRole:
+        Type: "AWS::IAM::Role"
+        Properties:
+            RoleName: !FindInMap [EnvMap, !Ref Env, taskexwcutionrole]
+            AssumeRolePolicyDocument:
+                Version: "2012-10-17"
+                Statement:
+                - Effect: "Allow"
+                  Principal:
+                    Service: "ecs-tasks.amazonaws.com"
+                  Action: "sts:AssumeRole"
+            ManagedPolicyArns:
+              - "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+###################### Task Defations ###############
+    taskdefinition: 
+        Type: AWS::ECS::TaskDefinition
+        Properties: 
+            ContainerDefinitions: 
+                - Name: "node"
+                  Image: 
+                    Fn::GetAtt: [ MyRepository, RepositoryUri ]
+                  Essential: true
+                  PortMappings:
+                    - ContainerPort: 3000
+                      Protocol: "tcp"
+            Cpu: 256
+            Memory: 512            
+            ExecutionRoleArn: !Ref TaskExecutionRole
+            TaskRoleArn: !Ref TaskExecutionRole
+            RequiresCompatibilities: 
+                - FARGATE            
+            Family: my-task-definition
+            NetworkMode: awsvpc
+
+###################### ECS Service ###################  
+    ECSService: 
+        Type: AWS::ECS::Service
+        Properties: 
+            ServiceName: !FindInMap [EnvMap, !Ref Env, servicename]
+            Cluster: !Ref ECSCluster
+            DesiredCount: 1
+            TaskDefinition: !Ref taskdefinition
+            LaunchType: FARGATE
+            NetworkConfiguration:
+                AwsvpcConfiguration: 
+                    AssignPublicIp: ENABLED
+                    SecurityGroups: 
+                        - sg-067b2a2c600240bdf
+                    Subnets: 
+                        - subnet-03b6c44aee20e4daf
+                        - subnet-0dd0d302b8657aed1
+            PlatformVersion: LATEST
+
+#################### S3 ###############
+    S3:
+        Type: AWS::S3::Bucket
+        Properties:
+            BucketName: !FindInMap [EnvMap, !Ref Env, s3name] 
+
+######################## POLICY FOR CODE BUILD ################# 
+    CodeBuildRole:
+        Type: AWS::IAM::Role
+        Properties:
+            RoleName: !FindInMap [EnvMap, !Ref Env, codebuildrole]
+            AssumeRolePolicyDocument:
+                Statement:
+                - Action: ['sts:AssumeRole']
+                  Effect: Allow
+                  Principal:
+                    Service: [codebuild.amazonaws.com]
+                Version: '2012-10-17'
+            Path: /
+            Policies:
+                - PolicyName: CodeBuildAccess
+                  PolicyDocument:
+                    Version: '2012-10-17'
+                    Statement:
+                    - Effect: Allow
+                      Resource: '*' 
+                      Action:
+                        - 'logs:*'
+                        - 's3:*'
+                        - 'ec2:CreateNetworkInterface'
+                        - 'ec2:DescribeNetworkInterfaces'
+                        - 'ec2:DeleteNetworkInterface'
+                        - 'ec2:DescribeSubnets'
+                        - 'ec2:DescribeSecurityGroups'
+                        - 'ec2:DescribeDhcpOptions'
+                        - 'ec2:DescribeVpcs'
+                        - 'ec2:CreateNetworkInterfacePermission'
+                        - 'ecr:*'
+                        - "ecr:GetAuthorizationToken"
+                        - "ecr:BatchCheckLayerAvailability"
+                        - "ecr:CompleteLayerUpload"
+                        - "ecr:PutImage"
+                        - "ecr-public:*"
+                        - "ecr:UploadLayerPart"
+################# code build #######################
+
+    Project:
+        Type: AWS::CodeBuild::Project
+        Properties:
+            Name: !FindInMap [EnvMap, !Ref Env, cbname] 
+            Description: A description about my project
+            ServiceRole: !GetAtt CodeBuildRole.Arn
+            Artifacts:
+                Type: no_artifacts
+            Environment:
+                Type: LINUX_CONTAINER
+                ComputeType: BUILD_GENERAL1_SMALL
+                Image: aws/codebuild/standard:4.0
+                PrivilegedMode: true
+                EnvironmentVariables:
+                    - Name: ECR_REPONAME
+                      Type: PLAINTEXT
+                      Value: !FindInMap [EnvMap, !Ref Env, ecrname]
+                    - Name: ECR_URI
+                      Type: PLAINTEXT
+                      Value: 
+                        Fn::GetAtt: [ MyRepository, RepositoryUri ]
+                    - Name: ECS_SERVICE
+                      Type: PLAINTEXT
+                      Value: !FindInMap [EnvMap, !Ref Env, servicename]
+
+            Source:
+                Location: https://github.com/Vikrant1020/node.git
+                Type: GITHUB
+            TimeoutInMinutes: 10
+
+############################# ROLE FOR CODE PIPELINE ############### 
+    CodePipelineRole:
+        Type: AWS::IAM::Role
+        Properties:
+            RoleName: !FindInMap [EnvMap, !Ref Env, codepipelinerole]
+            AssumeRolePolicyDocument:
+                Statement:
+                - Action: ['sts:AssumeRole']
+                  Effect: Allow
+                  Principal:
+                    Service: [codepipeline.amazonaws.com]
+                Version: '2012-10-17'
+            Path: /
+            ManagedPolicyArns:
+                - arn:aws:iam::aws:policy/AWSCodeDeployRoleForECS
+                - arn:aws:iam::aws:policy/AmazonECS_FullAccess
+            Policies:
+                - PolicyName: CodePipelineAccess
+                  PolicyDocument:
+                    Version: '2012-10-17'
+                    Statement:
+                    - Effect: Allow
+                      Resource: 'arn:aws:s3:::*/*' 
+                      Action:
+                        - 's3:*'
+                    - Effect: Allow
+                      Resource: '*' 
+                      Action:
+                        - elasticbeanstalk:*
+                        - ec2:*
+                        - elasticloadbalancing:*
+                        - autoscaling:*
+                        - cloudwatch:*
+                        - s3:*
+                        - sns:*
+                        - cloudformation:*
+                        - rds:*
+                        - sqs:*
+                        - ecs:*
+                        - codebuild:*
+                        - codedeploy:*
+                        - iam:PassRole
+                        - logs:*
+                        - codepipeline:*
+                        - cloudformation:*
+                        - cloudtrail:*
+                        - ecr:*
+#########################  CODE PIPELINE ######################### 
+    AppPipeline: 
+        Type: AWS::CodePipeline::Pipeline 
+        Properties: 
+            Name: !FindInMap [EnvMap, !Ref Env, pipelinename] 
+            RoleArn: !GetAtt CodePipelineRole.Arn
+            ArtifactStore:
+                Type: S3
+                Location: !FindInMap [EnvMap, !Ref Env, s3name] 
+            Stages: 
+            -   Name: Source 
+                Actions: 
+                -   Name: Source
+                    ActionTypeId: 
+                        Category: Source 
+                        Owner: ThirdParty 
+                        Version: 1 
+                        Provider: GitHub
+                    OutputArtifacts: 
+                        - Name: SourceOutput 
+                    Configuration:
+                        Owner: !Ref ownername
+                        Repo: !Ref reponame
+                        PollForSourceChanges: false
+                        Branch: !Ref branch
+                        OAuthToken: '{{resolve:secretsmanager:git:SecretString:git_token}}'
+                                        
+            -   Name: Build
+                Actions:
+                -   Name: Build
+                    ActionTypeId:
+                        Category: Build
+                        Owner: AWS
+                        Version: '1'
+                        Provider: CodeBuild
+                    Configuration: 
+                        ProjectName: !FindInMap [EnvMap, !Ref Env, cbname]
+                    InputArtifacts:
+                        - Name: SourceOutput
+                    OutputArtifacts:
+                        - Name: BuildOutput
+                    RunOrder: 1
+
+            -   Name: Deploy
+                Actions: 
+                -   Name: deploy
+                    InputArtifacts: 
+                    -   Name: BuildOutput 
+                    ActionTypeId: 
+                        Category: Deploy 
+                        Owner: AWS 
+                        Version: 1 
+                        Provider: ECS
+                    Configuration: 
+                        ClusterName: !FindInMap [EnvMap, !Ref Env, ecsname]
+                        ServiceName: !FindInMap [EnvMap, !Ref Env, servicename]
+                        FileName: imagedefinitions.json
+                    RunOrder: 1 
+
+        
+
+################# OUTPUTS ##############
+
+# Outputs:
+#     server1:
+#         Description: IPv4 of server1
+#         Value: !GetAtt server1.PublicIp
+
+#     LoadBalancer:
+#         Description: DNS of LoadBalancer
+#         Value: !GetAtt LoadBalancer.DNSName
